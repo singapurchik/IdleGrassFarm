@@ -10,7 +10,7 @@ namespace IGF.Players.Animations
 		[SerializeField] private float _decreaseLocomotionSpeed = 2f;
 		
 		[InjectOptional] private List<ILayerWithTriggers> _layersWithTriggers;
-		[Inject] private AttackLayer _attackLayer;
+		[Inject] private WeaponLayer _weaponLayer;
 		[Inject] private BaseLayer _baseLayer;
 		
 		private float _locomotionValueRequested;
@@ -19,16 +19,16 @@ namespace IGF.Players.Animations
 		private bool _isChangeLocomotionRequested;
 		private bool _isChangeSpeedRequested;
 
-		public IReadOnlyAnimatorLayer AttackLayer => _attackLayer;
+		public IReadOnlyAnimatorLayer WeaponLayer => _weaponLayer;
 		public IReadOnlyAnimatorLayer BaseLayer => _baseLayer;
 		
 		public Vector3 DeltaPosition => Animator.deltaPosition;
 		
 		public float GetLocomotionValue() => _baseLayer.LocomotionValue;
 
-		public void StopAttackAnim() => _attackLayer.StopAttackAnim();
+		public void StopAttackAnim() => _weaponLayer.StopAttackAnim();
 		
-		public void PlayAttackAnim() => _attackLayer.PlayAttackAnim();
+		public void PlayAttackAnim() => _weaponLayer.PlayAttackAnim();
 		
 		public void RequestSetLocomotionValue(float value)
 		{
@@ -97,7 +97,7 @@ namespace IGF.Players.Animations
 			else if (Animator.speed != 1)
 				Animator.speed = 1;
 
-			AutoLayerWeightControl(_attackLayer);
+			AutoLayerWeightControl(_weaponLayer);
 			UpdateLocomotionValue();
 			
 			_isChangeSpeedRequested = false;

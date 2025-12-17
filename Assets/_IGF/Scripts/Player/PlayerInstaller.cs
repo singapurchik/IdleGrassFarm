@@ -47,7 +47,7 @@ namespace IGF.Players
 			var layersList = new List<Layer>(10);
 			
 			BindToAnimator(new BaseLayer(_animatorController, 0, layersList));
-			BindToAnimator(new AttackLayer(_animatorController, 1, layersList));
+			BindToAnimator(new WeaponLayer(_animatorController, 1, layersList));
 			
 			BindToAnimator(triggersList);
 			BindToAnimator(layersList);
