@@ -2,6 +2,7 @@ using UnityEngine.Animations.Rigging;
 using System.Collections.Generic;
 using IGF.Players.Animations;
 using IGF.Players.AnimRig;
+using IGF.Players.States;
 using UnityEngine;
 using VInspector;
 using Zenject;
@@ -10,6 +11,7 @@ namespace IGF.Players
 {
 	public class PlayerInstaller : MonoInstaller
 	{
+		[SerializeField] private PlayerAttackTargetsFinder _attackTargetsFinder;
 		[SerializeField] private PlayerAnimEventsReceiver _animEventsReceiver;
 		[SerializeField] private CharacterController _characterController;
 		[SerializeField] private PlayerAnimationRigging _animationRigging;
@@ -37,10 +39,16 @@ namespace IGF.Players
 			Container.BindInstance(_animator).AsSingle();
 			Container.BindInstance(_rotator).AsSingle();
 			Container.BindInstance(_mover).AsSingle();
-			
+
+			BindToStatesMachine();
 			BindAnimator();
 		}
-		
+
+		private void BindToStatesMachine()
+		{
+			Container.BindInstance(_attackTargetsFinder).WhenInjectedInto<Attack>();
+		}
+
 		private void BindAnimator()
 		{
 			var triggersList = new List<ILayerWithTriggers>(10);
@@ -61,6 +69,7 @@ namespace IGF.Players
 		[Button]
 		private void FindDependencies()
 		{
+			_attackTargetsFinder = GetComponentInChildren<PlayerAttackTargetsFinder>(true);
 			_animEventsReceiver = GetComponentInChildren<PlayerAnimEventsReceiver>(true);
 			_animationRigging = GetComponentInChildren<PlayerAnimationRigging>(true);
 			_characterController = GetComponentInChildren<CharacterController>(true);

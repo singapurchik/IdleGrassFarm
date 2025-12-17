@@ -1,4 +1,5 @@
 using UnityEngine;
+using Zenject;
 
 namespace IGF.Players.States
 {
@@ -6,10 +7,13 @@ namespace IGF.Players.States
 	{
 		[SerializeField] private float _rotationSpeed = 20f;
 		
+		[Inject] private PlayerAttackTargetsFinder _targetsFinder;
+		
 		public override PlayerStates Key => PlayerStates.Attack;
 		
 		public override void Enter()
 		{
+			AnimEvents.OnAttack += TryAttack;
 			Animator.PlayAttackAnim();
 		}
 
@@ -19,9 +23,17 @@ namespace IGF.Players.States
 			Rotator.SmoothRotateToDirection(Input.GetJoystickDirection3D(), _rotationSpeed);
 		}
 
+		private void TryAttack()
+		{
+			if (_targetsFinder.Damageables.Count > 0)
+				foreach (var damageable in _targetsFinder.Damageables)
+					damageable.TryTakeDamage();
+		}
+
 		public override void Exit()
 		{
 			Animator.StopAttackAnim();
+			AnimEvents.OnAttack -= TryAttack;
 			base.Exit();
 		}
 	}
