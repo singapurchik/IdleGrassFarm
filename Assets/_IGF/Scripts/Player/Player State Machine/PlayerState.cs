@@ -9,6 +9,7 @@ namespace IGF.Players.States
 	{
 		Undefined = 0,
 		Free = 1,
+		Attack = 2
 	}
 
 	public abstract class PlayerState : State<PlayerStates, PlayerStates>
@@ -18,14 +19,11 @@ namespace IGF.Players.States
 		[Inject] protected PlayerAnimationRigging AnimationRigging;
 		[Inject] protected IPlayerStateMachineInfo StateMachine;
 		[Inject] protected PlayerAnimEventsReceiver AnimEvents;
-		[Inject] protected IPlayerStateReturner StateReturner;
 		[Inject] protected PlayerVisualEffects VisualEffects;
 		[Inject] protected PlayerAnimator Animator;
+		[Inject] protected IPlayerInputInfo Input;
 		[Inject] protected PlayerRotator Rotator;
 		[Inject] protected PlayerMover Mover;
-		[Inject] protected IPlayerInputInfo Input;
-
-		public abstract bool IsPlayerControlledState { get; }
 
 		protected Transform Parent { get; private set; }
 

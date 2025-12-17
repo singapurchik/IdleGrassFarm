@@ -4,15 +4,17 @@ using Zenject;
 
 namespace IGF.Players
 {
-    public class PlayerStateMachine : StateMachine<PlayerStates, PlayerState>, IPlayerStateMachineInfo, IPlayerStateReturner
+    public class PlayerStateMachine : StateMachine<PlayerStates, PlayerState>, IPlayerStateMachineInfo
     {
 	    [Inject] private PlayerAnimator _animator;
+	    [Inject] private Attack _attackState;
 	    [Inject] private Free _freeState;
 	    
         private PlayerState _lastControlledState;
-        private PlayerStates _lastControlledKey;
+        
         public override void Initialize()
         {
+	        AddState(_attackState);
 	        AddState(_freeState);
 	        
 	        TrySwitchStateTo(_freeState);
@@ -23,20 +25,9 @@ namespace IGF.Players
 	        base.ExitCurrentState();
 	        _animator.TryResetTriggers();
         }
-		
-        protected override void TrySwitchStateTo(PlayerState state)
-        {
-            if (CurrentState != null && CurrentState.IsPlayerControlledState)
-	            _lastControlledState = CurrentState;
 
-            base.TrySwitchStateTo(state);
-	        //print(CurrentState);
-        }
-
-        public void TryReturnLastControlledState()
-        {
-            if (_lastControlledState != null && !CurrentState.IsPlayerControlledState)
-                TrySwitchStateTo(_lastControlledState);
-        }
+        public void TrySwitchToAttackState() => TrySwitchStateTo(_attackState);
+        
+        public void TrySwitchToDefaultState() => TrySwitchStateTo(_freeState);
     }
 }

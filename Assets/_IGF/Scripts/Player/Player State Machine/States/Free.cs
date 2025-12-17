@@ -8,8 +8,6 @@ namespace IGF.Players.States
 		
 		public override PlayerStates Key => PlayerStates.Free;
 		
-		public override bool IsPlayerControlledState => true;
-
 		public override void Enter()
 		{
 		}

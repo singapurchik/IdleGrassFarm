@@ -19,11 +19,14 @@ namespace IGF.Players
 		[SerializeField] private RigBuilder _rigBuilder;
 		[SerializeField] private PlayerRotator _rotator;
 		[SerializeField] private PlayerMover _mover;
+		[SerializeField] private PlayerZone _zone;
 		[SerializeField] private Transform _body;
 		
 		public override void InstallBindings()
 		{
 			Container.BindInstance(_rigBuilder).WhenInjectedIntoInstance(_animationRigging);
+
+			Container.Bind<IPlayerZoneInfo>().FromInstance(_zone).AsSingle();
 			
 			Container.BindInstance(transform).WithId(CharacterTransformType.Root).AsCached();
 			Container.BindInstance(_body).WithId(CharacterTransformType.Body).AsCached();
@@ -44,6 +47,7 @@ namespace IGF.Players
 			var layersList = new List<Layer>(10);
 			
 			BindToAnimator(new BaseLayer(_animatorController, 0, layersList));
+			BindToAnimator(new AttackLayer(_animatorController, 1, layersList));
 			
 			BindToAnimator(triggersList);
 			BindToAnimator(layersList);
@@ -66,6 +70,7 @@ namespace IGF.Players
 			_rigBuilder = GetComponentInChildren<RigBuilder>(true);
 			_rotator = GetComponentInChildren<PlayerRotator>(true);
 			_mover = GetComponentInChildren<PlayerMover>(true);
+			_zone = GetComponentInChildren<PlayerZone>(true);
 		}
 #endif
 	}
