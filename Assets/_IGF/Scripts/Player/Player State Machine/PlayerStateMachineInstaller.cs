@@ -16,6 +16,7 @@ namespace IGF.Players
 
 			Container.Bind<IPlayerStateReturner>().FromInstance(_stateMachine).WhenInjectedInto<PlayerState>();
 			Container.Bind<IPlayerStateMachineInfo>().FromInstance(_stateMachine).AsSingle();
+			Container.BindInstance(_stateMachine).WhenInjectedInto<Player>();
 		}
 		
 		private void BindInstanceToStateMachine<T>(T instance)

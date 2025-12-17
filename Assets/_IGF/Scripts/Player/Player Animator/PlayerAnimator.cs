@@ -6,7 +6,6 @@ namespace IGF.Players.Animations
 {
 	public class PlayerAnimator : CharacterAnimator
 	{
-		[SerializeField] private float _changeHealthBehaviourTypeValueSpeed = 2f;
 		[SerializeField] private float _increaseLocomotionSpeed = 2f;
 		[SerializeField] private float _decreaseLocomotionSpeed = 2f;
 		
