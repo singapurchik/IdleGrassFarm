@@ -13,8 +13,6 @@ namespace IGF
 		
 		public bool IsReadyToTransit {get; protected set;}
 
-		public bool IsActive;
-		
 		public virtual void Exit()
 		{
 			IsReadyToTransit = false;

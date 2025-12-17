@@ -67,14 +67,12 @@ namespace IGF
 
 	        CurrentState = state;
 	        CurrentState.Enter();
-	        CurrentState.IsActive = true;
         }
 
         protected virtual void ExitCurrentState()
         {
 	        LastState = CurrentState;
 	        CurrentState.Exit();
-	        CurrentState.IsActive = false;
         }
 
         protected virtual void Update()
