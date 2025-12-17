@@ -2,10 +2,9 @@ using UnityEngine;
 
 namespace IGF
 {
-	public class Grass : MonoBehaviour, IDamageable, IPickupable
+	public class Grass : MonoBehaviour, IDamageable
 	{
 		[SerializeField] private GameObject _grownGrassVisual;
-		[SerializeField] private GameObject _cutGrassVisual;
 		[Range(1, 999)][SerializeField] private float _regrowingTime = 10f;
 		
 		private float _regrowAtTime;
@@ -17,24 +16,10 @@ namespace IGF
 			if (CurrentState == GrassState.Grown)
 				Cut();
 		}
-		
-		void IPickupable.TryPickUp()
-		{
-			if (CurrentState == GrassState.Cut)
-				PickUp();
-		}
 
 		private void Cut()
 		{
 			_grownGrassVisual.SetActive(false);
-			_cutGrassVisual.SetActive(true);
-			CurrentState = GrassState.Cut;
-		}
-
-		private void PickUp()
-		{
-			_grownGrassVisual.SetActive(false);
-			_cutGrassVisual.SetActive(false);
 			_regrowAtTime = Time.time + _regrowingTime;
 			CurrentState = GrassState.Regrowing;
 		}
@@ -42,7 +27,6 @@ namespace IGF
 		private void Regrow()
 		{
 			_grownGrassVisual.SetActive(true);
-			_cutGrassVisual.SetActive(false);
 			CurrentState = GrassState.Grown;
 		}
 
