@@ -1,13 +1,12 @@
+using System.Linq;
 using UnityEngine;
-using Zenject;
 
 namespace IGF.Players.States
 {
 	public class Attack : PlayerState
 	{
 		[SerializeField] private float _rotationSpeed = 20f;
-		
-		[Inject] private PlayerAttackTargetsFinder _targetsFinder;
+		[Range(0, 1)][SerializeField] private float _maxLocomotionValue = 0.5f;
 		
 		public override PlayerStates Key => PlayerStates.Attack;
 		
@@ -19,14 +18,18 @@ namespace IGF.Players.States
 
 		public override void Perform()
 		{
-			Animator.RequestSetLocomotionValue(Input.GetJoystickDirection2D().magnitude);
+			var locomotionValue = Mathf.Min(_maxLocomotionValue, Input.GetJoystickDirection2D().magnitude);
+			Animator.RequestSetLocomotionValue(locomotionValue);
 			Rotator.SmoothRotateToDirection(Input.GetJoystickDirection3D(), _rotationSpeed);
+			
+			if (!DamageablesFinderResult.IsHasTargets)
+				RequestTransition(PlayerStates.FreeRun);
 		}
 
 		private void TryAttack()
 		{
-			if (_targetsFinder.Damageables.Count > 0)
-				foreach (var damageable in _targetsFinder.Damageables)
+			if (DamageablesFinderResult.Damageables.Any())
+				foreach (var damageable in DamageablesFinderResult.Damageables)
 					damageable.TryTakeDamage();
 		}
 

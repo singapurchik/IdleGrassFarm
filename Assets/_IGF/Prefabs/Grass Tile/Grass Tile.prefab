@@ -49,8 +49,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IGF.Grass
   _grownGrassVisual: {fileID: 7290636225887978140}
-  _cutGrassVisual: {fileID: 0}
-  _regrowingTime: 10
+  _regrowingTime: 60
+  _hayBaleType: 0
 --- !u!205 &476289989427495718
 LODGroup:
   m_ObjectHideFlags: 0

@@ -24,8 +24,6 @@ namespace IGF.Players.Animations
 		
 		public Vector3 DeltaPosition => Animator.deltaPosition;
 		
-		public float GetLocomotionValue() => _baseLayer.LocomotionValue;
-
 		public void StopAttackAnim() => _weaponLayer.StopAttackAnim();
 		
 		public void PlayAttackAnim() => _weaponLayer.PlayAttackAnim();
@@ -36,19 +34,11 @@ namespace IGF.Players.Animations
 			_locomotionValueRequested = value;
 		}
 		
-		public void ForceSetLocomotionValue(float value) => _baseLayer.SetLocomotionValue(value);
-		
 		private void SmoothChangeLocomotionValue(float value, float speed)
 		{
 			var targetValue = Mathf.MoveTowards(_baseLayer.LocomotionValue,
 				value, speed * Time.deltaTime);
 			_baseLayer.SetLocomotionValue(targetValue);
-		}
-		
-		public void ForceChangeLocomotionValue(float value)
-		{
-			_locomotionValueRequested = value;
-			_baseLayer.SetLocomotionValue(_locomotionValueRequested);
 		}
 
 		private void UpdateLocomotionValue()

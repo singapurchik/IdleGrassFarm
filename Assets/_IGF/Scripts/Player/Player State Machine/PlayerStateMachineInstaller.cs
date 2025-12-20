@@ -9,12 +9,12 @@ namespace IGF.Players
 	{
 		[SerializeField] private PlayerStateMachine _stateMachine;
 		[SerializeField] private Attack _attackState;
-		[SerializeField] private Free _freeState;
+		[SerializeField] private FreeRun _freeRunState;
 
 		public override void InstallBindings()
 		{
 			BindInstanceToStateMachine(_attackState);
-			BindInstanceToStateMachine(_freeState);
+			BindInstanceToStateMachine(_freeRunState);
 
 			Container.Bind<IPlayerStateMachineInfo>().FromInstance(_stateMachine).AsSingle();
 			Container.BindInstance(_stateMachine).WhenInjectedInto<Player>();
@@ -29,7 +29,7 @@ namespace IGF.Players
 		{
 			_stateMachine = GetComponentInChildren<PlayerStateMachine>(true);
 			_attackState = GetComponentInChildren<Attack>(true);
-			_freeState = GetComponentInChildren<Free>(true);
+			_freeRunState = GetComponentInChildren<FreeRun>(true);
 		}
 #endif
 	}

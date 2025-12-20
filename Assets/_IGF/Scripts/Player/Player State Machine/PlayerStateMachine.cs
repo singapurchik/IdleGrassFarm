@@ -8,16 +8,16 @@ namespace IGF.Players
     {
 	    [Inject] private PlayerAnimator _animator;
 	    [Inject] private Attack _attackState;
-	    [Inject] private Free _freeState;
+	    [Inject] private FreeRun _freeRunState;
 	    
         private PlayerState _lastControlledState;
         
         public override void Initialize()
         {
 	        AddState(_attackState);
-	        AddState(_freeState);
+	        AddState(_freeRunState);
 	        
-	        TrySwitchStateTo(_freeState);
+	        TrySwitchStateTo(_freeRunState);
         }
         
         protected override void ExitCurrentState()
@@ -28,6 +28,6 @@ namespace IGF.Players
 
         public void TrySwitchToAttackState() => TrySwitchStateTo(_attackState);
         
-        public void TrySwitchToDefaultState() => TrySwitchStateTo(_freeState);
+        public void TrySwitchToDefaultState() => TrySwitchStateTo(_freeRunState);
     }
 }

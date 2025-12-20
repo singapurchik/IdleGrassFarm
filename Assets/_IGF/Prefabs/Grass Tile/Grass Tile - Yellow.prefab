@@ -8,9 +8,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2037195029269651918, guid: 59b04b66ed342d94b99d468c9bee1796, type: 3}
+      propertyPath: _hayBaleType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4498940416427880282, guid: 59b04b66ed342d94b99d468c9bee1796, type: 3}
       propertyPath: m_Name
-      value: Grass Tile Variant
+      value: Grass Tile - Yellow
       objectReference: {fileID: 0}
     - target: {fileID: 6523143195164261257, guid: 59b04b66ed342d94b99d468c9bee1796, type: 3}
       propertyPath: m_LocalPosition.x

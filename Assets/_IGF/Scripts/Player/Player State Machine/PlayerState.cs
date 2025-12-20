@@ -8,7 +8,7 @@ namespace IGF.Players.States
 	public enum PlayerStates
 	{
 		Undefined = 0,
-		Free = 1,
+		FreeRun = 1,
 		Attack = 2
 	}
 
@@ -16,6 +16,7 @@ namespace IGF.Players.States
 	{
 		[Inject (Id = CharacterTransformType.Root)] protected Transform Transform;
 		[Inject (Id = CharacterTransformType.Body)] protected Transform Body;
+		[Inject] protected IPlayerDamageablesFinderResult DamageablesFinderResult;
 		[Inject] protected PlayerAnimationRigging AnimationRigging;
 		[Inject] protected IPlayerStateMachineInfo StateMachine;
 		[Inject] protected PlayerAnimEventsReceiver AnimEvents;
