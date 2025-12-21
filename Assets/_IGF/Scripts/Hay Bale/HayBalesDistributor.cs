@@ -6,7 +6,7 @@ namespace IGF
 	public class HayBalesDistributor : MonoBehaviour
 	{
 		[Inject] private IHayBaleSpawnEvents _events;
-		[Inject] private HaleBaleHolders _holders;
+		[Inject] private HayBaleHolders _holders;
 
 		private void OnEnable()
 		{

@@ -4,7 +4,7 @@ using Zenject;
 
 namespace IGF
 {
-	public sealed class HaleBaleHolders
+	public sealed class HayBaleHolders : IHayBaleHoldersInfo
 	{
 		[Inject] private IReadOnlyList<HayBaleHolder> _holders;
 

@@ -17,7 +17,7 @@ namespace IGF.Players.States
 			Animator.RequestSetLocomotionValue(Input.GetJoystickDirection2D().magnitude);
 			Rotator.SmoothRotateToDirection(Input.GetJoystickDirection3D(), _rotationSpeed);
 			
-			if (DamageablesFinderResult.IsHasTargets && HaleBaleHolders.IsHasAnySpace)
+			if (DamageablesFinderResult.IsHasTargets && HayBaleHolders.IsHasAnySpace)
 				RequestTransition(PlayerStates.Attack);
 		}
 	}

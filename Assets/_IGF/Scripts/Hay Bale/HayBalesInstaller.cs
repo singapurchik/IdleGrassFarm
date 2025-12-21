@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using IGF.Players.States;
 using UnityEngine;
 using VInspector;
 using Zenject;
@@ -12,7 +13,7 @@ namespace IGF
 		[SerializeField] private HayBalePool _hayBaleGreenPool;
 		[SerializeField] private List<HayBaleHolder> _hayBaleHolder = new ();
 
-		private readonly HaleBaleHolders _holders = new ();
+		private readonly HayBaleHolders _holders = new ();
 		private readonly HayBaleSpawner _spawner = new ();
 
 		public override void InstallBindings()
@@ -21,8 +22,9 @@ namespace IGF
 			Container.BindInstance(_hayBaleGreenPool).WithId(HayBaleType.Green).WhenInjectedIntoInstance(_spawner);
 			Container.Bind<IReadOnlyList<HayBaleHolder>>().FromInstance(_hayBaleHolder).WhenInjectedIntoInstance(_holders);
 			Container.Bind<IHayBaleSpawnEvents>().FromInstance(_spawner).WhenInjectedIntoInstance(_distributor);
+			Container.Bind<IHayBaleHoldersInfo>().FromInstance(_holders).WhenInjectedInto<PlayerState>();
 			Container.Bind<IHayBaleSpawner>().FromInstance(_spawner).WhenInjectedInto<Grass>();
-			Container.BindInstance(_holders).AsSingle();
+			Container.BindInstance(_holders).WhenInjectedIntoInstance(_distributor);
 			Container.QueueForInject(_holders);
 			Container.QueueForInject(_spawner);
 		}
