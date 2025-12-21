@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5992412679492305068}
   - component: {fileID: 900086360824282592}
   - component: {fileID: 5003958874775205479}
+  - component: {fileID: 2203691094246274557}
   m_Layer: 0
   m_Name: State Machine
   m_TagString: Untagged
@@ -48,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IGF.Buyers.BuyerStateMachineInstaller
   _stateMachine: {fileID: 900086360824282592}
   _idleState: {fileID: 5003958874775205479}
+  _moveState: {fileID: 2203691094246274557}
 --- !u!114 &900086360824282592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,6 +74,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1cfb6af832740f7b6aeb3635a95ab6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IGF.Buyers.States.Idle
+--- !u!114 &2203691094246274557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56876286804629604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97cd2c5993c142898b397e95ce39ef19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IGF.Buyers.States.Move
+  _angularSpeed: 720
 --- !u!1 &1329010788683593540
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,6 +133,7 @@ GameObject:
   - component: {fileID: 6920922487198166295}
   - component: {fileID: 2135255833234510208}
   - component: {fileID: 358258151299465598}
+  - component: {fileID: 5461526986240189940}
   - component: {fileID: 7222334961683326071}
   m_Layer: 0
   m_Name: Buyer
@@ -177,7 +193,9 @@ MonoBehaviour:
   _animatorController: {fileID: 2135255833234510208}
   _navMeshAgent: {fileID: 7222334961683326071}
   _animator: {fileID: 6920922487198166295}
+  _rotator: {fileID: 5461526986240189940}
   _mover: {fileID: 358258151299465598}
+  _buyer: {fileID: 975561363273774901}
 --- !u!114 &975561363273774901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,6 +259,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IGF.Buyers.BuyerMover
   _targetRepathThreshold: 0.25
   _selfRepathThreshold: 0.25
+--- !u!114 &5461526986240189940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3268570829134505467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfea3f157cf945ca88ca6edad0cf75ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IGF.Buyers.BuyerRotator
 --- !u!195 &7222334961683326071
 NavMeshAgent:
   m_ObjectHideFlags: 0

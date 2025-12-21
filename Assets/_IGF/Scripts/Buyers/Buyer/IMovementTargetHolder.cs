@@ -6,7 +6,7 @@ namespace IGF.Buyers
 	{
 		public bool IsHasTarget { get; }
 		
-		public Transform CurrentMovementTarget { get; }
+		public Vector3 TargetPosition { get; }
 
 		public void ClearTarget();
 	}

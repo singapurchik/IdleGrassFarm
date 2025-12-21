@@ -1,5 +1,6 @@
-using UnityEngine;
+using IGF.Buyers.Animations;
 using UnityEngine.AI;
+using UnityEngine;
 using Zenject;
 
 namespace IGF.Buyers

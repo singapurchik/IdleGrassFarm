@@ -9,10 +9,12 @@ namespace IGF.Buyers
 	{
 		[SerializeField] private BuyerStateMachine _stateMachine;
 		[SerializeField] private Idle _idleState;
+		[SerializeField] private Move _moveState;
 		
 		public override void InstallBindings()
 		{
 			BindInstanceToStateMachine(_idleState);
+			BindInstanceToStateMachine(_moveState);
 			
 			Container.Bind<IBuyerStateMachineInfo>().FromInstance(_stateMachine).AsSingle();
 			Container.BindInstance(_stateMachine).WhenInjectedInto<Buyer>();
@@ -27,6 +29,7 @@ namespace IGF.Buyers
 		{
 			_stateMachine = GetComponent<BuyerStateMachine>();
 			_idleState = GetComponent<Idle>();
+			_moveState = GetComponent<Move>();
 		}
 #endif
 	}

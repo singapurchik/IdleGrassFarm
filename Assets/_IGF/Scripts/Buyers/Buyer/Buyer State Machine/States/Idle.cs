@@ -8,5 +8,11 @@ namespace IGF.Buyers.States
 		{
 			Mover.TryStopMove();
 		}
+
+		public override void Perform()
+		{
+			if (MovementTargetHolder.IsHasTarget)
+				RequestTransition(BuyerStates.Move);
+		}
 	}
 }

@@ -31,7 +31,7 @@ namespace IGF.Buyers
 		{
 			var buyer = _pool.Get();
 			buyer.RequestTeleport(_spawnPoint.position);
-			buyer.SetMovementTarget(queuePoint);
+			buyer.SetMovementTarget(queuePoint.position);
 
 			_buyers.Add(buyer);
 			buyer.OnPurchaseCompleted += OnBuyerPurchaseCompleted;
@@ -61,7 +61,7 @@ namespace IGF.Buyers
 				if (i >= _queue.PointsCount)
 					break;
 
-				_buyers[i].SetMovementTarget(_queue.GetPoint(i));
+				_buyers[i].SetMovementTarget(_queue.GetPoint(i).position);
 			}
 		}
 

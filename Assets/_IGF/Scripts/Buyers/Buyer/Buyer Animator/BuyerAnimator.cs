@@ -1,12 +1,16 @@
+using System;
 using UnityEngine;
+using Zenject;
 
-namespace IGF.Buyers
+namespace IGF.Buyers.Animations
 {
 	public class BuyerAnimator : CharacterAnimator
 	{
-				[SerializeField] private float _idleAnimSpeedMultiplier = 1f;
+		[SerializeField] private float _idleAnimSpeedMultiplier = 1f;
 		[SerializeField] private float _walkAnimSpeedMultiplier = 1f;
 		[SerializeField] private float _runAnimSpeedMultiplier = 1f;
+		
+		[Inject] private BaseLayer _baseLayer;
 		
 		protected float RequestedChangeLocomotionLerpSpeed;
 		protected float CurrentChangeLocomotionLerpSpeed;
@@ -82,6 +86,38 @@ namespace IGF.Buyers
 				layer.DisableWeightSmooth();
 			}
 		}
+		
+		private void TryChangeLocomotionValueSmooth(float normalizedValue)
+		{
+			if (_baseLayer.LocomotionValue != normalizedValue)
+			{
+				var targetLayerValue = Mathf.MoveTowards(_baseLayer.LocomotionValue, normalizedValue, 
+					CurrentChangeLocomotionLerpSpeed * Time.deltaTime);
+			
+				UpdateLocomotionSpeedMultiplier(_baseLayer.LocomotionValue, normalizedValue, targetLayerValue);
+				_baseLayer.SetLocomotionValue(targetLayerValue);
+			}
+		}
 
+		private void Update()
+		{
+			if (IsChangeLocomotionLerpSpeedRequested)
+			{
+				CurrentChangeLocomotionLerpSpeed = RequestedChangeLocomotionLerpSpeed;
+				IsChangeLocomotionLerpSpeedRequested = false;
+			}
+
+			if (IsChangeLocomotionValueRequested)
+			{
+				TryChangeLocomotionValueSmooth(RequestedSetLocomotionValue);
+				IsChangeLocomotionValueRequested = false;
+			}
+			else if (_baseLayer.LocomotionValue > 0)
+			{
+				TryChangeLocomotionValueSmooth(IDLE_LOCOMOTION_VALUE);
+			}
+			
+			CurrentChangeLocomotionLerpSpeed = DEFAULT_LOCOMOTION_LERP_SPEED;
+		}
 	}
 }
