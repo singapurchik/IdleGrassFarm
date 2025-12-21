@@ -15,11 +15,15 @@ namespace IGF.Buyers
 		[SerializeField] private BuyerRotator _rotator;
 		[SerializeField] private BuyerMover _mover;
 		[SerializeField] private Buyer _buyer;
+		
+		private readonly BuyerMovementTarget _movementTarget = new ();
 
 		public override void InstallBindings()
 		{
+			Container.Bind<IBuyerMovementTarget>().FromInstance(_movementTarget).WhenInjectedIntoInstance(_buyer);
+			Container.Bind<IBuyerMovementTarget>().FromInstance(_movementTarget).WhenInjectedInto<BuyerState>();
+			Container.Bind<IDestroyable>().FromInstance(_buyer).WhenInjectedInto<BuyerState>();
 			Container.BindInstance(_animatorController).WhenInjectedIntoInstance(_animator);
-			Container.Bind<IMovementTargetHolder>().FromInstance(_buyer).AsSingle();
 			Container.BindInstance(_navMeshAgent).WhenInjectedIntoInstance(_rotator);
 			Container.BindInstance(_navMeshAgent).WhenInjectedIntoInstance(_mover);
 			Container.BindInstance(_rotator).AsSingle();

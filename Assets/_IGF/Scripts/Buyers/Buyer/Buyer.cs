@@ -1,41 +1,28 @@
 using UnityEngine;
+using VInspector;
 using Zenject;
 using System;
-using VInspector;
 
 namespace IGF.Buyers
 {
-	public class Buyer : MonoBehaviour, IMovementTargetHolder
+	public sealed class Buyer : MonoBehaviour, IDestroyable
 	{
+		[Inject] private IBuyerMovementTarget _movementTarget;
 		[Inject] private BuyerStateMachine _stateMachine;
 		[Inject] private BuyerMover _mover;
 
-		public Vector3 TargetPosition { get; private set; }
+		public IBuyerMovementTarget MovementTarget => _movementTarget;
 
-		public bool IsHasTarget { get; private set; }
-
-		public event Action<Buyer> OnExitFromVisibleZone;
 		public event Action<Buyer> OnPurchaseCompleted;
+		public event Action<Buyer> OnDestroyed;
 
-		private void Start()
-		{
-			_stateMachine.Initialize();
-		}
-		
+		private void Start() => _stateMachine.Initialize();
+
 		public void RequestTeleport(Vector3 position) => _mover.RequestTeleport(position);
 
-		public void SetMovementTarget(Vector3 target)
-		{
-			TargetPosition = target;
-			IsHasTarget = true;
-		}
-
-		public void ClearTarget() => IsHasTarget = false;
-
 		[Button]
-		public void InvokeOnExitFromVisibleZone() => OnExitFromVisibleZone?.Invoke(this);
-		
-		[Button]
-		public void InvokeOnPurchaseCompleted() => OnPurchaseCompleted?.Invoke(this);
+		public void NotifyPurchaseCompleted() => OnPurchaseCompleted?.Invoke(this);
+
+		public void Destroy() => OnDestroyed?.Invoke(this);
 	}
 }

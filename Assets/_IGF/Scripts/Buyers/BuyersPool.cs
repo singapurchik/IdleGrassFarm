@@ -4,12 +4,12 @@ namespace IGF.Buyers
 	{
 		protected override void InitializeObject(Buyer buyer)
 		{
-			buyer.OnExitFromVisibleZone += ReturnToPool;
+			buyer.OnDestroyed += ReturnToPool;
 		}
 
 		protected override void CleanupObject(Buyer buyer)
 		{
-			buyer.OnExitFromVisibleZone -= ReturnToPool;
+			buyer.OnDestroyed -= ReturnToPool;
 		}
 	}
 }

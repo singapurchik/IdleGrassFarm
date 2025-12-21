@@ -4,30 +4,63 @@ using Zenject;
 
 namespace IGF.Buyers
 {
-	public class BuyersQueue : MonoBehaviour
+	public sealed class BuyersQueue : MonoBehaviour
 	{
+		[SerializeField] private Transform _exitPoint;
+
 		[Inject] private IReadOnlyList<Transform> _points;
 
-		private int _emptyPointIndex;
+		private readonly List<Buyer> _buyers = new(6);
 
-		public int PointsCount => _points.Count;
-		public bool IsHasEmptyPoint => _emptyPointIndex < _points.Count;
+		private void OnDisable()
+		{
+			for (int i = 0; i < _buyers.Count; i++)
+			{
+				var buyer = _buyers[i];
+				if (buyer == null) continue;
 
-		public Transform GetPoint(int index) => _points[index];
+				buyer.OnPurchaseCompleted -= OnBuyerPurchaseCompleted;
+			}
+		}
+
+		public void AddBuyer(Buyer buyer)
+		{
+			_buyers.Add(buyer);
+			buyer.OnPurchaseCompleted += OnBuyerPurchaseCompleted;
+		}
 
 		public bool TryGetEmptyPoint(out Transform point)
 		{
-			if (IsHasEmptyPoint)
+			var index = _buyers.Count;
+			
+			if (index >= _points.Count)
 			{
-				point = _points[_emptyPointIndex];
-				_emptyPointIndex++;
-				return true;
+				point = null;
+				return false;
 			}
 
-			point = null;
-			return false;
+			point = _points[index];
+			return true;
 		}
 
-		public void SetEmptyPoint() => _emptyPointIndex = Mathf.Max(0, _emptyPointIndex - 1);
+		private void OnBuyerPurchaseCompleted(Buyer buyer)
+		{
+			if (_buyers.Count == 0 || _buyers[0] != buyer)
+				return;
+
+			buyer.OnPurchaseCompleted -= OnBuyerPurchaseCompleted;
+			_buyers.RemoveAt(0);
+
+			buyer.MovementTarget.Set(_exitPoint.position, BuyerMovementTargetType.Exit);
+			ReassignTargets();
+		}
+
+		private void ReassignTargets()
+		{
+			var count = Mathf.Min(_buyers.Count, _points.Count);
+
+			for (int i = 0; i < count; i++)
+				_buyers[i].MovementTarget.Set(_points[i].position, BuyerMovementTargetType.QueuePoint);
+		}
 	}
 }

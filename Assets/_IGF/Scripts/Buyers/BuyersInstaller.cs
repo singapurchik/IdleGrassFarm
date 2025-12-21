@@ -7,17 +7,16 @@ namespace IGF.Buyers
 {
 	public class BuyersInstaller : MonoInstaller
 	{
-		[SerializeField] private BuyersSpawner _spawner;
+		[SerializeField] private BuyersSpawnScheduler _spawnScheduler;
+		[SerializeField] private BuyersQueue _buyersQueue;
 		[SerializeField] private BuyersPool _pool;
 		[SerializeField] private List<Transform> _queuePoints = new ();
 		
-		private readonly BuyersQueue _buyersQueue = new ();
-
 		public override void InstallBindings()
 		{
 			Container.Bind<IReadOnlyList<Transform>>().FromInstance(_queuePoints).WhenInjectedIntoInstance(_buyersQueue);
-			Container.BindInstance(_buyersQueue).WhenInjectedIntoInstance(_spawner);
-			Container.BindInstance(_pool).WhenInjectedIntoInstance(_spawner);
+			Container.BindInstance(_buyersQueue).WhenInjectedIntoInstance(_spawnScheduler);
+			Container.BindInstance(_pool).WhenInjectedIntoInstance(_spawnScheduler);
 			Container.QueueForInject(_buyersQueue);
 		}
 
@@ -25,7 +24,8 @@ namespace IGF.Buyers
 		[Button]
 		private void FindDependencies()
 		{
-			_spawner = GetComponentInChildren<BuyersSpawner>(true);
+			_spawnScheduler = GetComponentInChildren<BuyersSpawnScheduler>(true);
+			_buyersQueue = GetComponentInChildren<BuyersQueue>(true);
 			_pool = GetComponentInChildren<BuyersPool>(true);
 		}
 #endif

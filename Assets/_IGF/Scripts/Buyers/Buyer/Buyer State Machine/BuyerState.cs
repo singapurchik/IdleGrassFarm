@@ -12,7 +12,8 @@ namespace IGF.Buyers
 	
 	public abstract class BuyerState : State<BuyerStates, BuyerStates>
 	{
-		[Inject] protected IMovementTargetHolder MovementTargetHolder;
+		[Inject] protected IBuyerMovementTarget MovementTargetHolder;
+		[Inject] protected IDestroyable Destroyable;
 		[Inject] protected BuyerAnimator Animator;
 		[Inject] protected BuyerRotator Rotator;
 		[Inject] protected BuyerMover Mover;

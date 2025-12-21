@@ -11,7 +11,7 @@ namespace IGF.Buyers.States
 		public override void Enter()
 		{
 			Rotator.SetAutoAngularSpeed(_angularSpeed);
-			Mover.NavMeshMove(MovementTargetHolder.TargetPosition);
+			Mover.NavMeshMove(MovementTargetHolder.Position);
 		}
 
 		public override void Perform()
@@ -20,8 +20,12 @@ namespace IGF.Buyers.States
 
 			if (Mover.IsFinishMoveThisFrame)
 			{
-				MovementTargetHolder.ClearTarget();
-				RequestTransition(BuyerStates.Idle);
+				MovementTargetHolder.Clear();
+				
+				if (MovementTargetHolder.Type == BuyerMovementTargetType.QueuePoint)
+					RequestTransition(BuyerStates.Idle);
+				else
+					Destroyable.Destroy();
 			}
 		}
 	}
