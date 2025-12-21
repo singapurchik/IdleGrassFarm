@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace IGF
 {
 	public interface IHayBaleHolder
@@ -7,6 +5,8 @@ namespace IGF
 		public bool IsAvailable { get; }
 		public bool IsFull { get; }
 		
-		public bool TryGetPoint(out Transform point);
+		public bool TryReserve(out HayBaleSlot slot);
+		
+		public void Release(in HayBaleSlot slot);
 	}
 }

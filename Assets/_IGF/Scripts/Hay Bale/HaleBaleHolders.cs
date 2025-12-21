@@ -5,28 +5,49 @@ using Zenject;
 
 namespace IGF
 {
-	public class HaleBaleHolders
+	public sealed class HaleBaleHolders
 	{
 		[Inject] private IReadOnlyList<IHayBaleHolder> _holders;
-		
-		public bool IsHasSpace => _holders.Any(holder => holder.IsAvailable && !holder.IsFull);
 
-		public bool TryGetFreePoint(out Transform freePoint)
+		private readonly Stack<HayBaleSlot> _occupied = new(64);
+
+		public bool IsHasSpace => _holders.Any(h => h.IsAvailable && !h.IsFull);
+		public bool IsHasAnyBales => _occupied.Count > 0;
+
+		public bool TryReserveFreeSlot(out HayBaleSlot slot)
 		{
 			for (int i = 0; i < _holders.Count; i++)
 			{
 				var holder = _holders[i];
 				
-				if (!holder.IsAvailable) continue;
-				
-				if (holder.TryGetPoint(out var point))
+				if (!holder.IsAvailable || holder.IsFull) 
+					continue;
+
+				if (holder.TryReserve(out slot))
 				{
-					freePoint = point;
+					_occupied.Push(slot);
 					return true;
 				}
 			}
-			
-			freePoint = null;
+
+			slot = default;
+			return false;
+		}
+
+		public bool TryTakeLast(out HayBaleSlot slot)
+		{
+			while (_occupied.Count > 0)
+			{
+				slot = _occupied.Pop();
+
+				if (slot.Holder == null)
+					continue;
+
+				slot.Holder.Release(slot);
+				return true;
+			}
+
+			slot = default;
 			return false;
 		}
 	}
