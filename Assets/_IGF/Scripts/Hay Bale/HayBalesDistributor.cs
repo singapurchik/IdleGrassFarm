@@ -20,9 +20,7 @@ namespace IGF
 
 		private void OnHayBaleSpawned(HayBale hayBale)
 		{
-			if (_holders.TryReserveFreeSlot(out var slot))
-				hayBale.SetParent(slot.Point);
-			else
+			if (!_holders.TryPlace(hayBale)) 
 				hayBale.Destroy();
 		}
 	}

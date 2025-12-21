@@ -4,12 +4,12 @@ namespace IGF
 	{
 		protected override void InitializeObject(HayBale hayBale)
 		{
-			hayBale.OnDestryed += ReturnToPool;
+			hayBale.OnDestroyed += ReturnToPool;
 		}
 
 		protected override void CleanupObject(HayBale hayBale)
 		{
-			hayBale.OnDestryed -= ReturnToPool;
+			hayBale.OnDestroyed -= ReturnToPool;
 		}
 	}
 }

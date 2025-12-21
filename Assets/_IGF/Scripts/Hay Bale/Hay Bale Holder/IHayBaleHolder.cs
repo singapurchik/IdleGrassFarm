@@ -2,11 +2,13 @@ namespace IGF
 {
 	public interface IHayBaleHolder
 	{
-		public bool IsAvailable { get; }
-		public bool IsFull { get; }
-		
-		public bool TryReserve(out HayBaleSlot slot);
-		
-		public void Release(in HayBaleSlot slot);
+		bool IsAvailable { get; }
+		bool IsFull { get; }
+
+		bool TryReserve(out HayBaleSlot slot);
+
+		void Attach(in HayBaleSlot slot, HayBale hayBale);
+
+		bool TryReleaseLast(out HayBale hayBale);
 	}
 }

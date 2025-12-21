@@ -1,53 +1,31 @@
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 using Zenject;
 
 namespace IGF
 {
 	public sealed class HaleBaleHolders
 	{
-		[Inject] private IReadOnlyList<IHayBaleHolder> _holders;
+		[Inject] private IReadOnlyList<HayBaleHolder> _holders;
 
-		private readonly Stack<HayBaleSlot> _occupied = new(64);
+		public bool IsHasAnySpace => _holders.Any(holder => holder.IsAvailable && !holder.IsFull);
 
-		public bool IsHasSpace => _holders.Any(h => h.IsAvailable && !h.IsFull);
-		public bool IsHasAnyBales => _occupied.Count > 0;
-
-		public bool TryReserveFreeSlot(out HayBaleSlot slot)
+		public bool TryPlace(HayBale bale)
 		{
 			for (int i = 0; i < _holders.Count; i++)
-			{
-				var holder = _holders[i];
-				
-				if (!holder.IsAvailable || holder.IsFull) 
-					continue;
-
-				if (holder.TryReserve(out slot))
-				{
-					_occupied.Push(slot);
+				if (_holders[i].TryPlace(bale))
 					return true;
-				}
-			}
 
-			slot = default;
 			return false;
 		}
 
-		public bool TryTakeLast(out HayBaleSlot slot)
+		public bool TryPopLast(out HayBale bale)
 		{
-			while (_occupied.Count > 0)
-			{
-				slot = _occupied.Pop();
+			for (int i = _holders.Count - 1; i >= 0; i--)
+				if (_holders[i].TryPopLast(out bale))
+					return true;
 
-				if (slot.Holder == null)
-					continue;
-
-				slot.Holder.Release(slot);
-				return true;
-			}
-
-			slot = default;
+			bale = null;
 			return false;
 		}
 	}

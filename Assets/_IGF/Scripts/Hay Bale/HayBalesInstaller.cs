@@ -19,9 +19,8 @@ namespace IGF
 		{
 			Container.BindInstance(_hayBaleYellowPool).WithId(HayBaleType.Yellow).WhenInjectedIntoInstance(_spawner);
 			Container.BindInstance(_hayBaleGreenPool).WithId(HayBaleType.Green).WhenInjectedIntoInstance(_spawner);
+			Container.Bind<IReadOnlyList<HayBaleHolder>>().FromInstance(_hayBaleHolder).WhenInjectedIntoInstance(_holders);
 			Container.Bind<IHayBaleSpawnEvents>().FromInstance(_spawner).WhenInjectedIntoInstance(_distributor);
-			Container.Bind<IReadOnlyList<IHayBaleHolder>>().FromInstance(_hayBaleHolder)
-				.WhenInjectedIntoInstance(_holders);
 			Container.Bind<IHayBaleSpawner>().FromInstance(_spawner).WhenInjectedInto<Grass>();
 			Container.BindInstance(_holders).AsSingle();
 			Container.QueueForInject(_holders);
