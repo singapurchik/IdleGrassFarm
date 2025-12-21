@@ -14,7 +14,31 @@ PrefabInstance:
       objectReference: {fileID: 9000000, guid: 7833c62812e2f9046bf2fa1a7c2f0531, type: 3}
     - target: {fileID: 3268570829134505467, guid: 7ca7b01656afae24e8764685c7e9499b, type: 3}
       propertyPath: m_Name
-      value: Buyer Variant
+      value: Buyer - Muscle Bear
+      objectReference: {fileID: 0}
+    - target: {fileID: 4930783062377110051, guid: 7ca7b01656afae24e8764685c7e9499b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.425
+      objectReference: {fileID: 0}
+    - target: {fileID: 4930783062377110051, guid: 7ca7b01656afae24e8764685c7e9499b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4930783062377110051, guid: 7ca7b01656afae24e8764685c7e9499b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4930783062377110051, guid: 7ca7b01656afae24e8764685c7e9499b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4930783062377110051, guid: 7ca7b01656afae24e8764685c7e9499b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4930783062377110051, guid: 7ca7b01656afae24e8764685c7e9499b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 6853592364225235553, guid: 7ca7b01656afae24e8764685c7e9499b, type: 3}
       propertyPath: m_LocalPosition.x

@@ -33,7 +33,7 @@ namespace IGF
 		private void FindDependencies()
 		{
 			_hayBaleHolder.Clear();
-			_hayBaleHolder.AddRange(FindObjectsOfType<HayBaleHolder>(true));
+			_hayBaleHolder.AddRange(GetComponentsInChildren<HayBaleHolder>(true));
 			
 			_distributor = GetComponent<HayBalesDistributor>();
 		}

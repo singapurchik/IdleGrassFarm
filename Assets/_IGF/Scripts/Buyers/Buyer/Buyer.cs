@@ -10,7 +10,7 @@ namespace IGF.Buyers
 		[Inject] private IBuyerMovementTarget _movementTarget;
 		[Inject] private BuyerStateMachine _stateMachine;
 		[Inject] private BuyerMover _mover;
-
+		
 		public IBuyerMovementTarget MovementTarget => _movementTarget;
 
 		public event Action<Buyer> OnPurchaseCompleted;
