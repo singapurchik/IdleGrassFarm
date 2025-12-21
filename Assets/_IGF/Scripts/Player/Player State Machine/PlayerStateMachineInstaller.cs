@@ -8,13 +8,13 @@ namespace IGF.Players
 	public class PlayerStateMachineInstaller : MonoInstaller
 	{
 		[SerializeField] private PlayerStateMachine _stateMachine;
-		[SerializeField] private Attack _attackState;
 		[SerializeField] private FreeRun _freeRunState;
+		[SerializeField] private Attack _attackState;
 
 		public override void InstallBindings()
 		{
-			BindInstanceToStateMachine(_attackState);
 			BindInstanceToStateMachine(_freeRunState);
+			BindInstanceToStateMachine(_attackState);
 
 			Container.Bind<IPlayerStateMachineInfo>().FromInstance(_stateMachine).AsSingle();
 			Container.BindInstance(_stateMachine).WhenInjectedInto<Player>();

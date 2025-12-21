@@ -7,8 +7,8 @@ namespace IGF.Players
     public class PlayerStateMachine : StateMachine<PlayerStates, PlayerState>, IPlayerStateMachineInfo
     {
 	    [Inject] private PlayerAnimator _animator;
-	    [Inject] private Attack _attackState;
 	    [Inject] private FreeRun _freeRunState;
+	    [Inject] private Attack _attackState;
 	    
         private PlayerState _lastControlledState;
         
@@ -25,9 +25,5 @@ namespace IGF.Players
 	        base.ExitCurrentState();
 	        _animator.TryResetTriggers();
         }
-
-        public void TrySwitchToAttackState() => TrySwitchStateTo(_attackState);
-        
-        public void TrySwitchToDefaultState() => TrySwitchStateTo(_freeRunState);
     }
 }
