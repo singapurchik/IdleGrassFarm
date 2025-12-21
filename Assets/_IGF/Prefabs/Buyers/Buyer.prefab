@@ -239,7 +239,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4246d43a7e1444293809f1d486d8238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IGF.Buyers.BuyerMover
-  <_body>k__BackingField: {fileID: 0}
   _targetRepathThreshold: 0.25
   _selfRepathThreshold: 0.25
 --- !u!195 &7222334961683326071

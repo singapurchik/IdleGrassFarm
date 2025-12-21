@@ -6,7 +6,6 @@ namespace IGF.Buyers
 {
 	public class BuyerMover : MonoBehaviour
 	{
-		[field: SerializeField] public Transform _body { get; private set; }
 		[SerializeField] private float _targetRepathThreshold = 0.25f;
 		[SerializeField] private float _selfRepathThreshold = 0.25f;
 
