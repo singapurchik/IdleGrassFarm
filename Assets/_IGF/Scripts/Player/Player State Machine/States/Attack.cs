@@ -22,7 +22,7 @@ namespace IGF.Players.States
 			Animator.RequestSetLocomotionValue(locomotionValue);
 			Rotator.SmoothRotateToDirection(Input.GetJoystickDirection3D(), _rotationSpeed);
 			
-			if (!DamageablesFinderResult.IsHasTargets)
+			if (!DamageablesFinderResult.IsHasTargets || !HaleBaleHolders.IsHasSpace)
 				RequestTransition(PlayerStates.FreeRun);
 		}
 

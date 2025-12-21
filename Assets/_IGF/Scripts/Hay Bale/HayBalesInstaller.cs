@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using VInspector;
 using Zenject;
@@ -9,7 +10,9 @@ namespace IGF
 		[SerializeField] private HayBalesDistributor _distributor;
 		[SerializeField] private HayBalePool _hayBaleYellowPool;
 		[SerializeField] private HayBalePool _hayBaleGreenPool;
+		[SerializeField] private List<HayBaleHolder> _hayBaleHolder = new ();
 
+		private readonly HaleBaleHolders _holders = new ();
 		private readonly HayBaleSpawner _spawner = new ();
 
 		public override void InstallBindings()
@@ -17,7 +20,11 @@ namespace IGF
 			Container.BindInstance(_hayBaleYellowPool).WithId(HayBaleType.Yellow).WhenInjectedIntoInstance(_spawner);
 			Container.BindInstance(_hayBaleGreenPool).WithId(HayBaleType.Green).WhenInjectedIntoInstance(_spawner);
 			Container.Bind<IHayBaleSpawnEvents>().FromInstance(_spawner).WhenInjectedIntoInstance(_distributor);
+			Container.Bind<IReadOnlyList<IHayBaleHolder>>().FromInstance(_hayBaleHolder)
+				.WhenInjectedIntoInstance(_holders);
 			Container.Bind<IHayBaleSpawner>().FromInstance(_spawner).WhenInjectedInto<Grass>();
+			Container.BindInstance(_holders).AsSingle();
+			Container.QueueForInject(_holders);
 			Container.QueueForInject(_spawner);
 		}
 
@@ -25,6 +32,9 @@ namespace IGF
 		[Button]
 		private void FindDependencies()
 		{
+			_hayBaleHolder.Clear();
+			_hayBaleHolder.AddRange(FindObjectsOfType<HayBaleHolder>(true));
+			
 			_distributor = GetComponent<HayBalesDistributor>();
 		}
 #endif
