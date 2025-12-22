@@ -1,15 +1,33 @@
+using IGF.Upgrades;
 using UnityEngine;
 using Zenject;
 
 namespace IGF.Players
 {
-	public class Player : MonoBehaviour, IPlayer
+	public sealed class Player : MonoBehaviour, IPlayer, IAttackRangeUpgrader
 	{
+		[SerializeField] private AttackRangeUpgradeState _attackRange;
+		[SerializeField] private Transform _attackContainer;
+
 		[Inject] private PlayerStateMachine _stateMachine;
 
 		private void Start()
 		{
 			_stateMachine.Initialize();
+
+			ApplyAttackRange();
+		}
+
+		void IAttackRangeUpgrader.Upgrade()
+		{
+			_attackRange.Upgrade();
+			ApplyAttackRange();
+		}
+
+		private void ApplyAttackRange()
+		{
+			var currentRange = _attackRange.GetCurrentRange();
+			_attackContainer.localScale = new Vector3(currentRange, _attackContainer.localScale.y, currentRange);
 		}
 	}
 }

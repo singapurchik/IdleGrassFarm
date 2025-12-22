@@ -5,6 +5,8 @@ namespace IGF.Players.States
 {
 	public class Attack : PlayerState
 	{
+		[SerializeField] private MeshRenderer _attackRangeView;
+		[SerializeField] private ParticleSystem _attackEffect;
 		[SerializeField] private float _rotationSpeed = 20f;
 		[Range(0, 1)][SerializeField] private float _maxLocomotionValue = 0.5f;
 		
@@ -13,6 +15,7 @@ namespace IGF.Players.States
 		public override void Enter()
 		{
 			AnimEvents.OnAttack += TryAttack;
+			_attackRangeView.enabled = true;
 			Animator.PlayAttackAnim();
 		}
 
@@ -29,13 +32,18 @@ namespace IGF.Players.States
 		private void TryAttack()
 		{
 			if (DamageablesFinderResult.Damageables.Any())
+			{
+				_attackEffect.Play();
+				
 				foreach (var damageable in DamageablesFinderResult.Damageables)
 					damageable.TryTakeDamage();
+			}
 		}
 
 		public override void Exit()
 		{
 			Animator.StopAttackAnim();
+			_attackRangeView.enabled = false;
 			AnimEvents.OnAttack -= TryAttack;
 			base.Exit();
 		}

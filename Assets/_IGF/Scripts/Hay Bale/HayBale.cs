@@ -1,6 +1,6 @@
 using UnityEngine;
-using System;
 using IGF.Wallet;
+using System;
 
 namespace IGF
 {
