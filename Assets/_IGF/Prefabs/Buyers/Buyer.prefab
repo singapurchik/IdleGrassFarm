@@ -193,6 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IGF.Buyers.BuyerInstaller
   _animatorController: {fileID: 2135255833234510208}
+  _hayBaleHolder: {fileID: 8442946077723970342}
   _navMeshAgent: {fileID: 7222334961683326071}
   _animator: {fileID: 6920922487198166295}
   _rotator: {fileID: 5461526986240189940}
@@ -294,7 +295,7 @@ NavMeshAgent:
   m_Height: 1.85
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 0
 --- !u!114 &8442946077723970342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,7 +308,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35aa4ef95af348c996816a3c4bb23f99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IGF.HayBaleHolder
-  _points: []
+  _points:
+  - {fileID: 4930783062377110051}
 --- !u!1 &4034190889472647067
 GameObject:
   m_ObjectHideFlags: 0

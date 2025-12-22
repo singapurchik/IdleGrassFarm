@@ -15,6 +15,7 @@ namespace IGF.Buyers
 		public override void InstallBindings()
 		{
 			Container.Bind<IReadOnlyList<Transform>>().FromInstance(_queuePoints).WhenInjectedIntoInstance(_buyersQueue);
+			Container.Bind<IBuyersQueue>().FromInstance(_buyersQueue).WhenInjectedInto<HayBaleSaleZone>();
 			Container.BindInstance(_buyersQueue).WhenInjectedIntoInstance(_spawnScheduler);
 			Container.BindInstance(_pool).WhenInjectedIntoInstance(_spawnScheduler);
 			Container.QueueForInject(_buyersQueue);

@@ -13,7 +13,6 @@ namespace IGF.Buyers
 		private readonly Queue<Buyer> _buyers = new(6);
 
 		public bool IsHasBuyers => _buyers.Count > 0;
-
 		private void OnDisable()
 		{
 			foreach (var buyer in _buyers)

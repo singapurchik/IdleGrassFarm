@@ -4,13 +4,13 @@ namespace IGF
 {
 	public abstract class ProgressTriggerZone : MonoBehaviour
 	{
-		[SerializeField] private float _progressSpeed = 2f;
+		[SerializeField] private float _progressSpeed = 0.5f;
 		
 		private bool _isPlayerInside;
 
 		private float _progress;
 		
-		private const float PROGRESS_TO_COMPLETE = 100;
+		private const float PROGRESS_TO_COMPLETE = 1;
 		
 		private void OnTriggerEnter(Collider other)
 		{

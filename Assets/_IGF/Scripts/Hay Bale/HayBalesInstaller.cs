@@ -9,8 +9,9 @@ namespace IGF
 	public class HayBalesInstaller : MonoInstaller
 	{
 		[SerializeField] private HayBalesDistributor _distributor;
-		[SerializeField] private HayBalePool _hayBaleYellowPool;
-		[SerializeField] private HayBalePool _hayBaleGreenPool;
+		[SerializeField] private HayBaleSaleZone _saleZone;
+		[SerializeField] private HayBalePool _yellowPool;
+		[SerializeField] private HayBalePool _greenPool;
 		[SerializeField] private List<HayBaleHolder> _hayBaleHolder = new ();
 
 		private readonly HayBaleHolders _holders = new ();
@@ -18,13 +19,15 @@ namespace IGF
 
 		public override void InstallBindings()
 		{
-			Container.BindInstance(_hayBaleYellowPool).WithId(HayBaleType.Yellow).WhenInjectedIntoInstance(_spawner);
-			Container.BindInstance(_hayBaleGreenPool).WithId(HayBaleType.Green).WhenInjectedIntoInstance(_spawner);
+			Container.BindInstance(_yellowPool).WithId(HayBaleType.Yellow).WhenInjectedIntoInstance(_spawner);
+			Container.BindInstance(_greenPool).WithId(HayBaleType.Green).WhenInjectedIntoInstance(_spawner);
 			Container.Bind<IReadOnlyList<HayBaleHolder>>().FromInstance(_hayBaleHolder).WhenInjectedIntoInstance(_holders);
 			Container.Bind<IHayBaleSpawnEvents>().FromInstance(_spawner).WhenInjectedIntoInstance(_distributor);
 			Container.Bind<IHayBaleHoldersInfo>().FromInstance(_holders).WhenInjectedInto<PlayerState>();
 			Container.Bind<IHayBaleSpawner>().FromInstance(_spawner).WhenInjectedInto<Grass>();
+			Container.Bind<IHayBalesDistributor>().FromInstance(_distributor).AsSingle();
 			Container.BindInstance(_holders).WhenInjectedIntoInstance(_distributor);
+			Container.BindInstance(_holders).WhenInjectedIntoInstance(_saleZone);
 			Container.QueueForInject(_holders);
 			Container.QueueForInject(_spawner);
 		}
@@ -36,7 +39,8 @@ namespace IGF
 			_hayBaleHolder.Clear();
 			_hayBaleHolder.AddRange(GetComponentsInChildren<HayBaleHolder>(true));
 			
-			_distributor = GetComponent<HayBalesDistributor>();
+			_distributor = GetComponentInChildren<HayBalesDistributor>(true);
+			_saleZone = GetComponentInChildren<HayBaleSaleZone>(true);
 		}
 #endif
 	}

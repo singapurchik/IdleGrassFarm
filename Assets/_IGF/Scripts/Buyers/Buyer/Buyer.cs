@@ -1,5 +1,4 @@
 using UnityEngine;
-using VInspector;
 using Zenject;
 using System;
 
@@ -7,10 +6,9 @@ namespace IGF.Buyers
 {
 	public sealed class Buyer : MonoBehaviour, IDestroyable, IBuyer
 	{
-		[SerializeField] private Transform _hayBalePoint;
-		
 		[Inject] private IBuyerMovementTarget _movementTarget;
 		[Inject] private BuyerStateMachine _stateMachine;
+		[Inject] private HayBaleHolder _hayBaleHolder;
 		[Inject] private BuyerMover _mover;
 		
 		public IBuyerMovementTarget MovementTarget => _movementTarget;
@@ -21,14 +19,17 @@ namespace IGF.Buyers
 		private void Start() => _stateMachine.Initialize();
 
 		public void RequestTeleport(Vector3 position) => _mover.RequestTeleport(position);
-
-		void IBuyer.Buy(HayBale hayBale)
+		
+		public HayBaleHolder CompletePurchase()
 		{
-			hayBale.transform.SetParent(_hayBalePoint, false);
-			hayBale.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
 			OnPurchaseCompleted?.Invoke(this);
+			return _hayBaleHolder;
 		}
 		
-		public void Destroy() => OnDestroyed?.Invoke(this);
+		public void Destroy()
+		{
+			_hayBaleHolder.SetEmpty();
+			OnDestroyed?.Invoke(this);
+		}
 	}
 }

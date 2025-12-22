@@ -5393,7 +5393,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 163572788}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -1000, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5408,7 +5408,7 @@ Transform:
   - {fileID: 1919160150}
   - {fileID: 1250295086}
   - {fileID: 575329322}
-  m_Father: {fileID: 915867238}
+  m_Father: {fileID: 2091021921}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &163911292
 PrefabInstance:
@@ -6227,17 +6227,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2552735157103722028, guid: 158421cc69ef2d84fb952ab82acb65ea, type: 3}
   m_PrefabInstance: {fileID: 187364637}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &188100638 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 558628195750400057, guid: ea8257ec942ec6f4d80c4b0910777ca5, type: 3}
-  m_PrefabInstance: {fileID: 1489875459}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35aa4ef95af348c996816a3c4bb23f99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IGF.HayBaleHolder
 --- !u!1001 &189504092
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8883,6 +8872,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2552735157103722028, guid: 158421cc69ef2d84fb952ab82acb65ea, type: 3}
   m_PrefabInstance: {fileID: 277108048}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &278065412
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 278065413}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &278065413
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278065412}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1870429657}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &280175803
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10173,7 +10193,7 @@ Transform:
   m_GameObject: {fileID: 326163603}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 1.45, y: 0, z: -12.8}
+  m_LocalPosition: {x: 1.45, y: 0, z: -10.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11835,6 +11855,39 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2552735157103722028, guid: 158421cc69ef2d84fb952ab82acb65ea, type: 3}
   m_PrefabInstance: {fileID: 370746281}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &371131353
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 371131354}
+  m_Layer: 0
+  m_Name: Pools
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &371131354
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371131353}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 698700430}
+  - {fileID: 834715599}
+  m_Father: {fileID: 753471634}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &371497074
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13732,7 +13785,7 @@ Transform:
   m_GameObject: {fileID: 424005225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.46201858, y: 0.000000010119386, z: -0.000000005271735, w: 0.88687027}
-  m_LocalPosition: {x: 1.45, y: 14.3, z: -22.8}
+  m_LocalPosition: {x: 1.45, y: 14.3, z: -20.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17109,6 +17162,73 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2552735157103722028, guid: 158421cc69ef2d84fb952ab82acb65ea, type: 3}
   m_PrefabInstance: {fileID: 518259309}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &521930002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 521930003}
+  - component: {fileID: 521930005}
+  - component: {fileID: 521930004}
+  m_Layer: 0
+  m_Name: Sale Zone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &521930003
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521930002}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 4.197}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1870429657}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &521930004
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521930002}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.62, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &521930005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521930002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adb97fc6957040be9daeb688e1cd4778, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IGF.HayBaleSaleZone
+  _progressSpeed: 0.5
 --- !u!1001 &524820514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22657,7 +22777,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 698700429}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -1000, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -22692,7 +22812,7 @@ Transform:
   - {fileID: 1344555787}
   - {fileID: 1540693575}
   - {fileID: 1482103865}
-  m_Father: {fileID: 753471634}
+  m_Father: {fileID: 371131354}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &698700431
 MonoBehaviour:
@@ -24082,8 +24202,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 698700430}
-  - {fileID: 834715599}
+  - {fileID: 1870429657}
+  - {fileID: 371131354}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &753471635
@@ -24111,13 +24231,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IGF.HayBalesInstaller
   _distributor: {fileID: 753471635}
-  _hayBaleYellowPool: {fileID: 834715600}
-  _hayBaleGreenPool: {fileID: 698700431}
+  _saleZone: {fileID: 521930005}
+  _yellowPool: {fileID: 834715600}
+  _greenPool: {fileID: 698700431}
   _hayBaleHolder:
   - {fileID: 269742737}
-  - {fileID: 801394594}
-  - {fileID: 1417909884}
-  - {fileID: 188100638}
 --- !u!1001 &756255249
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26102,17 +26220,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2552735157103722028, guid: 142e29fde74df7d40b6c5aa3df751a22, type: 3}
   m_PrefabInstance: {fileID: 801088692}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &801394594 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 558628195750400057, guid: ea8257ec942ec6f4d80c4b0910777ca5, type: 3}
-  m_PrefabInstance: {fileID: 1006851748}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35aa4ef95af348c996816a3c4bb23f99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IGF.HayBaleHolder
 --- !u!1001 &808798104
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26939,7 +27046,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 834715598}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -1000, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -26974,7 +27081,7 @@ Transform:
   - {fileID: 2030398859}
   - {fileID: 472701851}
   - {fileID: 334288014}
-  m_Father: {fileID: 753471634}
+  m_Father: {fileID: 371131354}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &834715600
 MonoBehaviour:
@@ -29157,109 +29264,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2552735157103722028, guid: 158421cc69ef2d84fb952ab82acb65ea, type: 3}
   m_PrefabInstance: {fileID: 914169383}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &915867237
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 915867238}
-  - component: {fileID: 915867241}
-  - component: {fileID: 915867240}
-  - component: {fileID: 915867239}
-  - component: {fileID: 915867242}
-  m_Layer: 0
-  m_Name: Buyers
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &915867238
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 915867237}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1870429657}
-  - {fileID: 163572790}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &915867239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 915867237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80c4487b9ef74eea935bf8ed840c2c2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IGF.Buyers.BuyersSpawner
-  _spawnPoint: {fileID: 610589838}
-  _spawnDelay: 1
---- !u!114 &915867240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 915867237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7836da2085684bc5ab7e7b9c2053ff30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IGF.Buyers.BuyersInstaller
-  _spawnScheduler: {fileID: 915867239}
-  _buyersQueue: {fileID: 915867242}
-  _pool: {fileID: 163572789}
-  _queuePoints:
-  - {fileID: 1161228296}
-  - {fileID: 1261705095}
-  - {fileID: 1193943047}
-  - {fileID: 1224060145}
-  - {fileID: 1750911494}
---- !u!114 &915867241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 915867237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Zenject::Zenject.GameObjectContext
-  _scriptableObjectInstallers: []
-  _monoInstallers:
-  - {fileID: 915867240}
-  _installerPrefabs: []
-  _autoRun: 1
-  _kernel: {fileID: 0}
---- !u!114 &915867242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 915867237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c104bc5578d47ff9878cd61ee879dc0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IGF.Buyers.BuyersQueue
-  _exitPoint: {fileID: 515303120}
 --- !u!1001 &916608487
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44292,17 +44296,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2552735157103722028, guid: 158421cc69ef2d84fb952ab82acb65ea, type: 3}
   m_PrefabInstance: {fileID: 1415614118}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1417909884 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 558628195750400057, guid: ea8257ec942ec6f4d80c4b0910777ca5, type: 3}
-  m_PrefabInstance: {fileID: 1049825624}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35aa4ef95af348c996816a3c4bb23f99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IGF.HayBaleHolder
 --- !u!1001 &1423588921
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54038,6 +54031,7 @@ MonoBehaviour:
   _monoInstallers:
   - {fileID: 1705985168}
   - {fileID: 753471636}
+  - {fileID: 2091021919}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -59634,7 +59628,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1870429657}
   m_Layer: 0
-  m_Name: Buyers Zone
+  m_Name: Hay Bale Trade Zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59653,11 +59647,13 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 521930003}
   - {fileID: 1570685214}
   - {fileID: 541148798}
   - {fileID: 610589838}
   - {fileID: 515303120}
-  m_Father: {fileID: 915867238}
+  - {fileID: 278065413}
+  m_Father: {fileID: 753471634}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1871781524
 PrefabInstance:
@@ -67352,6 +67348,89 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2552735157103722028, guid: 142e29fde74df7d40b6c5aa3df751a22, type: 3}
   m_PrefabInstance: {fileID: 2089691870}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2091021916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2091021921}
+  - component: {fileID: 2091021919}
+  - component: {fileID: 2091021918}
+  - component: {fileID: 2091021917}
+  m_Layer: 0
+  m_Name: Buyers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2091021917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091021916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c104bc5578d47ff9878cd61ee879dc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IGF.Buyers.BuyersQueue
+  _exitPoint: {fileID: 515303120}
+--- !u!114 &2091021918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091021916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c4487b9ef74eea935bf8ed840c2c2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IGF.Buyers.BuyersSpawnScheduler
+  _spawnPoint: {fileID: 610589838}
+  _spawnDelay: 1
+--- !u!114 &2091021919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091021916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7836da2085684bc5ab7e7b9c2053ff30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IGF.Buyers.BuyersInstaller
+  _spawnScheduler: {fileID: 2091021918}
+  _buyersQueue: {fileID: 2091021917}
+  _pool: {fileID: 163572789}
+  _queuePoints:
+  - {fileID: 1161228296}
+  - {fileID: 1261705095}
+  - {fileID: 1193943047}
+  - {fileID: 1224060145}
+  - {fileID: 1750911494}
+--- !u!4 &2091021921
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091021916}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 163572790}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2091326713
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69357,4 +69436,4 @@ SceneRoots:
   - {fileID: 1006851748}
   - {fileID: 1049825624}
   - {fileID: 753471634}
-  - {fileID: 915867238}
+  - {fileID: 2091021921}

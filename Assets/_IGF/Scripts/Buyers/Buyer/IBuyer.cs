@@ -1,7 +1,7 @@
 namespace IGF.Buyers
 {
-	public interface IBuyer
+	public interface IBuyer : IHayBaleBuyer
 	{
-		public void Buy(HayBale hayBale);
+		
 	}
 }

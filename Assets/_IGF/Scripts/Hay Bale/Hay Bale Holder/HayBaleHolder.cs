@@ -13,7 +13,7 @@ namespace IGF
 
 		public bool IsAvailable => gameObject.activeInHierarchy;
 		public bool IsFull => _nextFreeIndex >= _points.Count;
-		public bool HasAny => _occupied.Count > 0;
+		public bool IsHasAny => _occupied.Count > 0;
 
 		private void Awake()
 		{
@@ -55,5 +55,22 @@ namespace IGF
 			bale = null;
 			return false;
 		}
+
+		public void SetEmpty()
+		{
+			for (int i = 0; i < _bales.Length; i++)
+			{
+				var bale = _bales[i];
+				
+				if (bale != null)
+					bale.Destroy();
+
+				_bales[i] = null;
+			}
+
+			_occupied.Clear();
+			_nextFreeIndex = 0;
+		}
+
 	}
 }

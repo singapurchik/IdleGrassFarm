@@ -10,6 +10,7 @@ namespace IGF.Buyers
 	public class BuyerInstaller : MonoInstaller
 	{
 		[SerializeField] private Animator _animatorController;
+		[SerializeField] private HayBaleHolder _hayBaleHolder;
 		[SerializeField] private NavMeshAgent _navMeshAgent;
 		[SerializeField] private BuyerAnimator _animator;
 		[SerializeField] private BuyerRotator _rotator;
@@ -25,6 +26,7 @@ namespace IGF.Buyers
 			Container.Bind<IDestroyable>().FromInstance(_buyer).WhenInjectedInto<BuyerState>();
 			Container.BindInstance(_animatorController).WhenInjectedIntoInstance(_animator);
 			Container.BindInstance(_navMeshAgent).WhenInjectedIntoInstance(_rotator);
+			Container.BindInstance(_hayBaleHolder).WhenInjectedIntoInstance(_buyer);
 			Container.BindInstance(_navMeshAgent).WhenInjectedIntoInstance(_mover);
 			Container.BindInstance(_rotator).AsSingle();
 			Container.BindInstance(_animator).AsSingle();
@@ -50,6 +52,7 @@ namespace IGF.Buyers
 		[Button]
 		private void FindDependencies()
 		{
+			_hayBaleHolder = GetComponentInChildren<HayBaleHolder>(true);
 			_animatorController = GetComponentInChildren<Animator>(true);
 			_navMeshAgent = GetComponentInChildren<NavMeshAgent>(true);
 			_animator = GetComponentInChildren<BuyerAnimator>(true);

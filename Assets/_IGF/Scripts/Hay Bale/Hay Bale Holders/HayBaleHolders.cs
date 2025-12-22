@@ -9,7 +9,7 @@ namespace IGF
 		[Inject] private IReadOnlyList<HayBaleHolder> _holders;
 
 		public bool IsHasAnySpace => _holders.Any(holder => holder.IsAvailable && !holder.IsFull);
-		public bool IsAllEmpty => _holders.All(holder => !holder.IsAvailable || holder.IsFull);
+		public bool IsAllEmpty => _holders.All(holder => !holder.IsAvailable || !holder.IsHasAny);
 
 		public bool TryPlace(HayBale bale)
 		{
