@@ -1,4 +1,5 @@
 using IGF.Buyers;
+using IGF.Wallet;
 using Zenject;
 
 namespace IGF
@@ -6,6 +7,7 @@ namespace IGF
 	public class HayBaleSaleZone : ProgressTriggerZone
 	{
 		[Inject] private IHayBalesDistributor _distributor;
+		[Inject] private IWalletCurrencyAdder _wallet;
 		[Inject] private IBuyersQueue _buyersQueue;
 
 		protected override void OnPlayerInside()
@@ -19,7 +21,9 @@ namespace IGF
 			if (_buyersQueue.TryGetCurrentBuyer(out var buyer))
 			{
 				var holder = buyer.CompletePurchase();
-				_distributor.TryPlaceTo(holder);
+				
+				if (_distributor.TrySellTo(holder, out var currencyForSaleType))
+					_wallet.AddCurrency(currencyForSaleType);
 			}
 
 			ResetProgress();	

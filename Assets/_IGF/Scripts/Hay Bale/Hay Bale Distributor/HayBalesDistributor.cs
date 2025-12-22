@@ -1,3 +1,4 @@
+using IGF.Wallet;
 using UnityEngine;
 using Zenject;
 
@@ -26,10 +27,17 @@ namespace IGF
 				hayBale.Destroy();
 		}
 
-		public void TryPlaceTo(HayBaleHolder holder)
+		public bool TrySellTo(HayBaleHolder holder, out CurrencyType currencyForSaleType)
 		{
 			if (_holders.TryPopLast(out var hayBale))
+			{
 				holder.TryPlace(hayBale);
+				currencyForSaleType = hayBale.CurrencyForSaleType;
+				return true;
+			}
+
+			currencyForSaleType = default;
+			return false;
 		}
 	}
 }

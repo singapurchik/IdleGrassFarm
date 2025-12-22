@@ -36,7 +36,8 @@ namespace IGF.Buyers
 		private const float MIN_REMAINING_DISTANCE = 0.1f;
 		private const float PATH_UPDATE_INTERVAL = 0.2f;
 
-		public bool IsProcessMovement => Agent.enabled && (_isTransformMoveThisFrame || _isRootMotionMovedLastFrame
+		public bool IsProcessMovement => Agent.enabled && Agent.isOnNavMesh &&
+		                                 (_isTransformMoveThisFrame || _isRootMotionMovedLastFrame
 		                                 || Agent.pathPending
 		                                 || Agent.remainingDistance > MIN_REMAINING_DISTANCE + Agent.stoppingDistance);
 		public bool IsFinishMoveThisFrame => !IsProcessMovement && IsMovedLastFrame;
@@ -126,7 +127,7 @@ namespace IGF.Buyers
 		
 		public void TryStopMove()
 		{
-			if (Agent.enabled && !_isDisableRequested)
+			if (Agent.enabled && Agent.isOnNavMesh && !_isDisableRequested)
 			{
 				Agent.isStopped = true;
 				Agent.ResetPath();

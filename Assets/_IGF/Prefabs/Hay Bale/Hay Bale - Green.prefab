@@ -48,9 +48,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2420839894509719830, guid: 939566cc0e8f72a49a8753eeb7881055, type: 3}
+      propertyPath: <CurrencyForSaleType>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2686150256856979002, guid: 939566cc0e8f72a49a8753eeb7881055, type: 3}
       propertyPath: m_Name
-      value: Hay Bale Green
+      value: Hay Bale - Green
       objectReference: {fileID: 0}
     - target: {fileID: 7964197503852252771, guid: 939566cc0e8f72a49a8753eeb7881055, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
