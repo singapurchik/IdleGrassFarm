@@ -3,7 +3,7 @@ using Zenject;
 
 namespace IGF.Players
 {
-	public class Player : MonoBehaviour
+	public class Player : MonoBehaviour, IPlayer
 	{
 		[Inject] private PlayerStateMachine _stateMachine;
 

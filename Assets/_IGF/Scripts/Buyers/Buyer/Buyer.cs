@@ -5,8 +5,10 @@ using System;
 
 namespace IGF.Buyers
 {
-	public sealed class Buyer : MonoBehaviour, IDestroyable
+	public sealed class Buyer : MonoBehaviour, IDestroyable, IBuyer
 	{
+		[SerializeField] private Transform _hayBalePoint;
+		
 		[Inject] private IBuyerMovementTarget _movementTarget;
 		[Inject] private BuyerStateMachine _stateMachine;
 		[Inject] private BuyerMover _mover;
@@ -20,9 +22,13 @@ namespace IGF.Buyers
 
 		public void RequestTeleport(Vector3 position) => _mover.RequestTeleport(position);
 
-		[Button]
-		public void NotifyPurchaseCompleted() => OnPurchaseCompleted?.Invoke(this);
-
+		void IBuyer.Buy(HayBale hayBale)
+		{
+			hayBale.transform.SetParent(_hayBalePoint, false);
+			hayBale.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+			OnPurchaseCompleted?.Invoke(this);
+		}
+		
 		public void Destroy() => OnDestroyed?.Invoke(this);
 	}
 }

@@ -4,35 +4,32 @@ using Zenject;
 
 namespace IGF.Buyers
 {
-	public sealed class BuyersQueue : MonoBehaviour
+	public sealed class BuyersQueue : MonoBehaviour, IBuyersQueue
 	{
 		[SerializeField] private Transform _exitPoint;
 
 		[Inject] private IReadOnlyList<Transform> _points;
 
-		private readonly List<Buyer> _buyers = new(6);
+		private readonly Queue<Buyer> _buyers = new(6);
+
+		public bool IsHasBuyers => _buyers.Count > 0;
 
 		private void OnDisable()
 		{
-			for (int i = 0; i < _buyers.Count; i++)
-			{
-				var buyer = _buyers[i];
-				if (buyer == null) continue;
-
+			foreach (var buyer in _buyers)
 				buyer.OnPurchaseCompleted -= OnBuyerPurchaseCompleted;
-			}
 		}
 
 		public void AddBuyer(Buyer buyer)
 		{
-			_buyers.Add(buyer);
+			_buyers.Enqueue(buyer);
 			buyer.OnPurchaseCompleted += OnBuyerPurchaseCompleted;
 		}
 
 		public bool TryGetEmptyPoint(out Transform point)
 		{
 			var index = _buyers.Count;
-			
+
 			if (index >= _points.Count)
 			{
 				point = null;
@@ -45,22 +42,40 @@ namespace IGF.Buyers
 
 		private void OnBuyerPurchaseCompleted(Buyer buyer)
 		{
-			if (_buyers.Count == 0 || _buyers[0] != buyer)
-				return;
-
 			buyer.OnPurchaseCompleted -= OnBuyerPurchaseCompleted;
-			_buyers.RemoveAt(0);
+			_buyers.Dequeue();
 
-			buyer.MovementTarget.Set(_exitPoint.position, BuyerMovementTargetType.Exit);
+			if (_exitPoint != null)
+				buyer.MovementTarget.Set(_exitPoint.position, BuyerMovementTargetType.Exit);
+
 			ReassignTargets();
 		}
 
 		private void ReassignTargets()
 		{
-			var count = Mathf.Min(_buyers.Count, _points.Count);
+			var max = _points.Count;
+			var i = 0;
 
-			for (int i = 0; i < count; i++)
-				_buyers[i].MovementTarget.Set(_points[i].position, BuyerMovementTargetType.QueuePoint);
+			foreach (var queuedBuyer in _buyers)
+			{
+				if (i < max)
+				{
+					queuedBuyer.MovementTarget.Set(_points[i].position, BuyerMovementTargetType.QueuePoint);
+					i++;	
+				}
+			}
+		}
+		
+		public bool TryGetCurrentBuyer(out IBuyer buyer)
+		{
+			if (_buyers.TryPeek(out var current))
+			{
+				buyer = current;
+				return true;
+			}
+
+			buyer = null;
+			return false;
 		}
 	}
 }
