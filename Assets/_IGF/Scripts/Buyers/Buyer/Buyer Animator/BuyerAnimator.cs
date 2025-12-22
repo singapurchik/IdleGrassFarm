@@ -10,6 +10,7 @@ namespace IGF.Buyers.Animations
 		[SerializeField] private float _walkAnimSpeedMultiplier = 1f;
 		[SerializeField] private float _runAnimSpeedMultiplier = 1f;
 		
+		[Inject] private UpperBodyLayer _upperBodyLayer;
 		[Inject] private BaseLayer _baseLayer;
 		
 		protected float RequestedChangeLocomotionLerpSpeed;
@@ -37,11 +38,20 @@ namespace IGF.Buyers.Animations
 			CurrentLocomotionSpeedMultiplier = Animator.GetFloat(_locomotionSpeedMultiplier);
 		}
 
+		private void OnEnable()
+		{
+			_baseLayer.SyncLocomotionValue();
+		}
+
 		public void RequestChangeLocomotionLerpSpeed(float speed)
 		{
 			RequestedChangeLocomotionLerpSpeed = speed;
 			IsChangeLocomotionLerpSpeedRequested = true;
 		}
+		
+		public void PlayHoldingHayBaleAnim() => _upperBodyLayer.PlayHoldingHayBaleAnim();
+		
+		public void StopHoldingHayBaleAnim() => _upperBodyLayer.StopHoldingHayBaleAnim();
 
 		public void RequestWalkAnim() => RequestSetLocomotion(WALK_LOCOMOTION_VALUE);
 
@@ -116,6 +126,8 @@ namespace IGF.Buyers.Animations
 			{
 				TryChangeLocomotionValueSmooth(IDLE_LOCOMOTION_VALUE);
 			}
+
+			AutoLayerWeightControl(_upperBodyLayer);
 			
 			CurrentChangeLocomotionLerpSpeed = DEFAULT_LOCOMOTION_LERP_SPEED;
 		}

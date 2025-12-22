@@ -41,6 +41,7 @@ namespace IGF.Buyers
 			var layersList = new List<Layer>(10);
 
 			BindInstanceToAnimator(new BaseLayer(_animatorController, 0, layersList));
+			BindInstanceToAnimator(new UpperBodyLayer(_animatorController, 1, layersList));
 			BindInstanceToAnimator(triggersList);
 			BindInstanceToAnimator(layersList);
 		}

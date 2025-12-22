@@ -17,6 +17,12 @@ namespace IGF.Buyers.States
 		public override void Perform()
 		{
 			Animator.RequestWalkAnim();
+			
+			if (MovementTargetHolder.IsHasTarget)
+			{
+			print(MovementTargetHolder.Position);
+				Mover.NavMeshMove(MovementTargetHolder.Position);
+			}
 
 			if (Mover.IsFinishMoveThisFrame)
 			{

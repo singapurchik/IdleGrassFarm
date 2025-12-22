@@ -18,5 +18,7 @@ namespace IGF.Buyers.Animations
 			LocomotionValue = value;
 			Animator.SetFloat(_locomotionValueHash, LocomotionValue);
 		}
+		
+		public void SyncLocomotionValue() => LocomotionValue = Animator.GetFloat(_locomotionValueHash);
 	}
 }

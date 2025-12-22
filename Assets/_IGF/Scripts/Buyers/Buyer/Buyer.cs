@@ -1,3 +1,4 @@
+using IGF.Buyers.Animations;
 using UnityEngine;
 using Zenject;
 using System;
@@ -9,6 +10,7 @@ namespace IGF.Buyers
 		[Inject] private IBuyerMovementTarget _movementTarget;
 		[Inject] private BuyerStateMachine _stateMachine;
 		[Inject] private HayBaleHolder _hayBaleHolder;
+		[Inject] private BuyerAnimator _animator;
 		[Inject] private BuyerMover _mover;
 		
 		public IBuyerMovementTarget MovementTarget => _movementTarget;
@@ -22,12 +24,14 @@ namespace IGF.Buyers
 		
 		public HayBaleHolder CompletePurchase()
 		{
+			_animator.PlayHoldingHayBaleAnim();
 			OnPurchaseCompleted?.Invoke(this);
 			return _hayBaleHolder;
 		}
 		
 		public void Destroy()
 		{
+			_animator.StopHoldingHayBaleAnim();
 			_hayBaleHolder.SetEmpty();
 			OnDestroyed?.Invoke(this);
 		}
