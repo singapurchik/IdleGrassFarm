@@ -11,7 +11,6 @@ namespace IGF.Buyers.States
 		public override void Enter()
 		{
 			Rotator.SetAutoAngularSpeed(_angularSpeed);
-			Mover.NavMeshMove(MovementTargetHolder.Position);
 		}
 
 		public override void Perform()
@@ -19,12 +18,12 @@ namespace IGF.Buyers.States
 			Animator.RequestWalkAnim();
 			
 			if (MovementTargetHolder.IsHasTarget)
-			{
-			print(MovementTargetHolder.Position);
 				Mover.NavMeshMove(MovementTargetHolder.Position);
-			}
 
-			if (Mover.IsFinishMoveThisFrame)
+			var targetPosition = MovementTargetHolder.Position;
+			targetPosition.y = transform.position.y;
+			
+			if (Vector3.SqrMagnitude(transform.position - targetPosition) < 0.001f && Mover.IsFinishMoveThisFrame)
 			{
 				MovementTargetHolder.Clear();
 				

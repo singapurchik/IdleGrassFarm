@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using VInspector;
 
 namespace IGF.Players
 {
@@ -64,5 +65,27 @@ namespace IGF.Players
 				_damageablesToRemove.Clear();
 			}
 		}
+        
+#if UNITY_EDITOR
+		[Header("DEBUG")]
+		[SerializeField] private bool _drawGizmos = true;
+		[ReadOnly] [SerializeField] private BoxCollider _boxCollider;
+		
+		private void OnDrawGizmos()
+		{
+			if (_drawGizmos)
+			{
+				Gizmos.color = Color.red;
+				
+				if (_boxCollider == null)
+					_boxCollider = GetComponent<BoxCollider>();
+				
+				var prevMatrix = Gizmos.matrix;
+				Gizmos.matrix = transform.localToWorldMatrix;
+				Gizmos.DrawCube(_boxCollider.center, _boxCollider.size);
+				Gizmos.matrix = prevMatrix;
+			}
+		}
+#endif
 	}
 }
