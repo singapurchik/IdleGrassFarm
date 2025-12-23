@@ -20,6 +20,8 @@ namespace IGF.Buyers
 				buyer.OnPurchaseCompleted -= OnBuyerPurchaseCompleted;
 		}
 
+		public Vector3 GetFirstPointPosition() => _points[0].position;
+		
 		public void AddBuyer(Buyer buyer)
 		{
 			_buyers.Enqueue(buyer);

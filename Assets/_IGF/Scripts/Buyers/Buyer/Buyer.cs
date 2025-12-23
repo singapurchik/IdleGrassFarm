@@ -14,7 +14,9 @@ namespace IGF.Buyers
 		[Inject] private BuyerMover _mover;
 		
 		public IBuyerMovementTarget MovementTarget => _movementTarget;
-
+		
+		public Vector3 Position => transform.position;
+		
 		public event Action<Buyer> OnPurchaseCompleted;
 		public event Action<Buyer> OnDestroyed;
 

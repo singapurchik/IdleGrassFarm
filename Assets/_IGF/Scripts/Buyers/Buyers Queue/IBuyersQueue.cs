@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace IGF.Buyers
 {
 	public interface IBuyersQueue
@@ -5,5 +7,7 @@ namespace IGF.Buyers
 		public bool IsHasBuyers { get; }
 		
 		public bool TryGetCurrentBuyer(out IBuyer buyer);
+
+		public Vector3 GetFirstPointPosition();
 	}
 }
