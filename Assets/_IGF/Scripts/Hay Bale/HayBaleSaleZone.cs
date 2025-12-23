@@ -21,18 +21,14 @@ namespace IGF
 
 		protected override void OnProgressComplete()
 		{
-			if (_buyersQueue.TryGetCurrentBuyer(out var buyer))
+			if (_buyersQueue.TryGetCurrentBuyer(out var buyer) &&
+			    Vector3.SqrMagnitude(buyer.Position - _buyersQueue.GetFirstPointPosition())
+					< _maxPurchaseDistance * _maxPurchaseDistance)
 			{
-				print($"current {Vector3.SqrMagnitude(buyer.Position -  _buyersQueue.GetFirstPointPosition())}");
-				print($"target {_maxPurchaseDistance * _maxPurchaseDistance}");
-				if (Vector3.SqrMagnitude(buyer.Position - _buyersQueue.GetFirstPointPosition())
-				    < _maxPurchaseDistance * _maxPurchaseDistance)
-				{
-					var holder = buyer.CompletePurchase();
+				var holder = buyer.CompletePurchase();
 
-					if (_distributor.TrySellTo(holder, out var currencyForSaleType))
-						_wallet.AddCurrency(currencyForSaleType);	
-				}
+				if (_distributor.TrySellTo(holder, out var currencyForSaleType))
+					_wallet.AddCurrency(currencyForSaleType);	
 			}
 
 			ResetProgress();
