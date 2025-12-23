@@ -4,12 +4,15 @@ using Zenject;
 
 namespace IGF.Players
 {
-	public sealed class Player : MonoBehaviour, IPlayer, IAttackRangeUpgrader
+	public sealed class Player : MonoBehaviour, IPlayer, IAttackRangeUpgrader, ICartTarget
 	{
 		[SerializeField] private AttackRangeUpgradeState _attackRange;
 		[SerializeField] private Transform _attackContainer;
 
 		[Inject] private PlayerStateMachine _stateMachine;
+		
+		public Vector3 Position => transform.position;
+		public Vector3 Forward => transform.forward;
 
 		private void Start()
 		{

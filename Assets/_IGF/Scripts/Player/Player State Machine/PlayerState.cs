@@ -19,7 +19,7 @@ namespace IGF.Players.States
 		[Inject] protected IPlayerStateMachineInfo StateMachine;
 		[Inject] protected PlayerAnimEventsReceiver AnimEvents;
 		[Inject] protected PlayerVisualEffects VisualEffects;
-		[Inject] protected IHayBaleHoldersInfo HayBaleHolders;
+		[Inject] protected IHayBaleHoldersInfo HayBalesHolder;
 		[Inject] protected PlayerAnimator Animator;
 		[Inject] protected IPlayerInputInfo Input;
 		[Inject] protected PlayerRotator Rotator;

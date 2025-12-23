@@ -2,7 +2,8 @@ namespace IGF
 {
 	public interface IHayBaleHoldersInfo
 	{
-		public bool IsHasAnySpace { get; }
-		public bool IsAllEmpty { get; }
+		public bool IsHasAnySpace();
+		
+		public bool IsAllEmpty();
 	}
 }

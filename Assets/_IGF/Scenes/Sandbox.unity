@@ -8852,17 +8852,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2552735157103722028, guid: 142e29fde74df7d40b6c5aa3df751a22, type: 3}
   m_PrefabInstance: {fileID: 269099724}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &269742737 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 558628195750400057, guid: ea8257ec942ec6f4d80c4b0910777ca5, type: 3}
-  m_PrefabInstance: {fileID: 5595210472792449500}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35aa4ef95af348c996816a3c4bb23f99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IGF.HayBaleHolder
 --- !u!114 &270787665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24281,8 +24270,6 @@ MonoBehaviour:
   _saleZone: {fileID: 521930005}
   _yellowPool: {fileID: 834715600}
   _greenPool: {fileID: 698700431}
-  _hayBaleHolder:
-  - {fileID: 269742737}
 --- !u!1001 &756255249
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69696,6 +69683,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 163916222}
     m_Modifications:
+    - target: {fileID: 1375401830632207815, guid: b10acae9393e71742b1efe9796a1d7a5, type: 3}
+      propertyPath: _firstBaseCost
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1375401830632207815, guid: b10acae9393e71742b1efe9796a1d7a5, type: 3}
+      propertyPath: _secondBaseCost
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3983468211478031603, guid: b10acae9393e71742b1efe9796a1d7a5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

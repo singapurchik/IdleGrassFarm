@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 namespace IGF
 {
-	public sealed class HayBaleHolder : MonoBehaviour
+	public class HayBaleHolder : MonoBehaviour
 	{
 		[SerializeField] private List<Transform> _points = new();
-
+		
 		private readonly Stack<int> _occupied = new();
 		private HayBale[] _bales;
 		private int _nextFreeIndex;
@@ -21,7 +22,7 @@ namespace IGF
 			_occupied.Clear();
 			_nextFreeIndex = 0;
 		}
-
+		
 		public bool TryPlace(HayBale bale)
 		{
 			if (!IsAvailable || IsFull)

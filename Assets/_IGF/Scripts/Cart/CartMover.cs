@@ -4,8 +4,6 @@ namespace IGF
 {
 	public sealed class CartMover : MonoBehaviour
 	{
-		[SerializeField] private Transform _targetPoint;
-
 		[Header("Follow Offset (Behind Target)")]
 		[SerializeField, Min(0f)] private float _maxDistance = 1.25f;
 		[SerializeField, Min(0f)] private float _stopDistance = 0.15f;
@@ -25,14 +23,18 @@ namespace IGF
 		[SerializeField, Min(0f)] private float _maxLagDistance = 3f;
 		[SerializeField, Min(0f)] private float _catchUpSpeed = 10f;
 		[SerializeField, Min(1f)] private float _catchUpRotMultiplier = 1.5f;
+		
+		private ICartTarget _currentTarget;
 
 		private float _currentSpeed;
+		
+		public void SetTarget(ICartTarget target) => _currentTarget = target;
 
 		private Vector3 GetDesiredPosBehindTarget()
 		{
-			var targetPos = _targetPoint.position;
+			var targetPos = _currentTarget.Position;
 
-			var behindDir = -_targetPoint.forward;
+			var behindDir = -_currentTarget.Forward;
 			behindDir.y = 0f;
 
 			if (behindDir.sqrMagnitude < 0.0001f)
@@ -53,7 +55,7 @@ namespace IGF
 
 			var dist = toDesired.magnitude;
 
-			var finishFacing = _targetPoint.forward;
+			var finishFacing = _currentTarget.Forward;
 			finishFacing.y = 0f;
 			finishFacing = finishFacing.sqrMagnitude > 0.0001f ? finishFacing.normalized : GetPlanarForward();
 
@@ -143,8 +145,11 @@ namespace IGF
 		
 		private void Update()
 		{
-			var desiredPos = GetDesiredPosBehindTarget();
-			UpdateSteeringAndMove(desiredPos);
+			if (_currentTarget != null)
+			{
+				var desiredPos = GetDesiredPosBehindTarget();
+				UpdateSteeringAndMove(desiredPos);	
+			}
 		}
 	}
 }

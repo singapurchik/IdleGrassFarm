@@ -17,6 +17,7 @@ namespace IGF
 		{
 			Container.Bind<IAttackRangeUpgrader>().FromInstance(_player).WhenInjectedInto<AttackRangeDepositZone>();
 			Container.Bind<ICartSpawner>().FromInstance(_cartSpawner).WhenInjectedInto<CartDepositZone>();
+			Container.Bind<ICartTarget>().FromInstance(_player).WhenInjectedIntoInstance(_cartSpawner);
 			Container.BindInstance(_mainCamera).AsSingle();
 		}
 

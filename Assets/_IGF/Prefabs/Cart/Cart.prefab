@@ -344,7 +344,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3785886113908436381}
-  - component: {fileID: 558628195750400057}
   m_Layer: 0
   m_Name: Hay Bales Points
   m_TagString: Untagged
@@ -399,51 +398,6 @@ Transform:
   - {fileID: 3384418740915730324}
   m_Father: {fileID: 2629073158976640329}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &558628195750400057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1663159251431312101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35aa4ef95af348c996816a3c4bb23f99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IGF.HayBaleHolder
-  _points:
-  - {fileID: 3088704355650604344}
-  - {fileID: 4951119156527225834}
-  - {fileID: 5219432330686105769}
-  - {fileID: 2506731730728446488}
-  - {fileID: 2536708088846369242}
-  - {fileID: 1259635600169830190}
-  - {fileID: 4875894558343683237}
-  - {fileID: 2278173644758256976}
-  - {fileID: 5810551090420878502}
-  - {fileID: 349822787730261555}
-  - {fileID: 3139481135316872987}
-  - {fileID: 457140754270347715}
-  - {fileID: 3366144921852378622}
-  - {fileID: 1766000043833843082}
-  - {fileID: 4155631836779831717}
-  - {fileID: 7208266883135861607}
-  - {fileID: 1270834310996057505}
-  - {fileID: 4623931686717502988}
-  - {fileID: 8909671564622785446}
-  - {fileID: 5915899513014798425}
-  - {fileID: 7198956553720234594}
-  - {fileID: 6930039088778098187}
-  - {fileID: 8059510101805356659}
-  - {fileID: 4910851600119624224}
-  - {fileID: 327068722420529362}
-  - {fileID: 2744452710185744482}
-  - {fileID: 6717017810157262794}
-  - {fileID: 5536357348893869871}
-  - {fileID: 43449354670290272}
-  - {fileID: 6121070106934160423}
-  - {fileID: 5010872695299297457}
-  - {fileID: 3384418740915730324}
 --- !u!1 &1763276593100921185
 GameObject:
   m_ObjectHideFlags: 0
@@ -912,8 +866,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2629073158976640329}
+  - component: {fileID: 6219663813544483460}
+  - component: {fileID: 2866202786436761011}
   - component: {fileID: 1419989055987573240}
   - component: {fileID: 7469589461312668462}
+  - component: {fileID: 7377768711063578567}
   m_Layer: 0
   m_Name: Cart
   m_TagString: Untagged
@@ -939,6 +896,38 @@ Transform:
   - {fileID: 3785886113908436381}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6219663813544483460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4341841642837545280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Zenject::Zenject.GameObjectContext
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: 2866202786436761011}
+  _installerPrefabs: []
+  _autoRun: 1
+  _kernel: {fileID: 0}
+--- !u!114 &2866202786436761011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4341841642837545280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af0211bd94334f0ab6065a79c3c72730, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IGF.CartInstaller
+  _mover: {fileID: 7469589461312668462}
+  _cart: {fileID: 1419989055987573240}
 --- !u!114 &1419989055987573240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -963,7 +952,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0d0bfa2ac65411fad3a752d2df271ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IGF.Cart
-  _targetPoint: {fileID: 0}
   _maxDistance: 1.25
   _stopDistance: 0.15
   _maxForwardSpeed: 6
@@ -976,6 +964,29 @@ MonoBehaviour:
   _maxLagDistance: 3
   _catchUpSpeed: 10
   _catchUpRotMultiplier: 1.5
+--- !u!114 &7377768711063578567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4341841642837545280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f2e334a6ffe44a48e45f8fb46500284, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IGF.CartHayBaleHolder
+  _points:
+  - {fileID: 3088704355650604344}
+  - {fileID: 4951119156527225834}
+  - {fileID: 5219432330686105769}
+  - {fileID: 2506731730728446488}
+  - {fileID: 2536708088846369242}
+  - {fileID: 1259635600169830190}
+  - {fileID: 4875894558343683237}
+  - {fileID: 2278173644758256976}
+  - {fileID: 5810551090420878502}
+  - {fileID: 349822787730261555}
 --- !u!1 &4523261170098234582
 GameObject:
   m_ObjectHideFlags: 0

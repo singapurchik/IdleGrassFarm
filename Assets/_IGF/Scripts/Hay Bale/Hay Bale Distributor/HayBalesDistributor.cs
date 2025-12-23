@@ -1,5 +1,5 @@
-using IGF.Wallet;
 using UnityEngine;
+using IGF.Wallet;
 using Zenject;
 
 namespace IGF
@@ -9,7 +9,7 @@ namespace IGF
 		[Inject] private IHayBaleSpawnEvents _events;
 		[Inject] private HayBaleHolders _holders;
 
-		public bool IsHasHayBale => !_holders.IsAllEmpty;
+		public bool IsHasHayBale => !_holders.IsAllEmpty();
 
 		private void OnEnable()
 		{
