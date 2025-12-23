@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2686150256856979002
+--- !u!1 &2064178144880907543
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,45 +8,60 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2126402602008259048}
-  - component: {fileID: 2420839894509719830}
+  - component: {fileID: 7690901619094832617}
+  - component: {fileID: 7956508722239473623}
   m_Layer: 0
-  m_Name: Hay Bale
+  m_Name: Sandbox Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2126402602008259048
+--- !u!4 &7690901619094832617
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2686150256856979002}
+  m_GameObject: {fileID: 2064178144880907543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -23.59, y: 0, z: -26.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7676139677132533900}
+  - {fileID: 6131303047207908452}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2420839894509719830
+--- !u!114 &7956508722239473623
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2686150256856979002}
+  m_GameObject: {fileID: 2064178144880907543}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e915dfc63334be6a0cddc6894874d20, type: 3}
+  m_Script: {fileID: 1888829932, guid: 6a4e86495d841c64e9e7019a348ccfe2, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IGF.HayBale
-  <CurrencyForSaleType>k__BackingField: 0
---- !u!1 &7136777383842156138
+  m_EditorClassIdentifier: AmazingAssets.TerrainToMesh.dll::AmazingAssets.TerrainToMesh.TerrainToMeshConversionDetails
+  prefabProjectPath: Assets/_IGF/Scenes/Sandbox/Sandbox Terrain/Sandbox Terrain.prefab
+  autoFixOnStart: 0
+  edgeAlignMode: 0
+  alignLODs: 1
+  vertexCountHorizontal: 2
+  vertexCountVertical: 2
+  splitCountHorizontal: 1
+  splitCountVertical: 1
+  hasEdgeFall: 0
+  hasPerChunkUV: 0
+  meshIsCompressed: 1
+  meshes:
+  - {fileID: -1092727211679597944, guid: 8402eb54ab9c3924e9c4cb5dfd085dd3, type: 2}
+  meshLODs: []
+  pivotPointOffset:
+  - {x: 0, y: 0, z: 0}
+--- !u!1 &3660637473363255521
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -54,48 +69,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7676139677132533900}
-  - component: {fileID: 8724351358411524416}
-  - component: {fileID: 7964197503852252771}
+  - component: {fileID: 8693139124924926813}
+  - component: {fileID: 1132133667263580013}
+  - component: {fileID: 3036271775899246253}
   m_Layer: 0
-  m_Name: Hay Bale
+  m_Name: Sandbox Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7676139677132533900
+--- !u!4 &8693139124924926813
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7136777383842156138}
+  m_GameObject: {fileID: 3660637473363255521}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 50, y: 100, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2126402602008259048}
+  m_Father: {fileID: 6131303047207908452}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8724351358411524416
+--- !u!33 &1132133667263580013
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7136777383842156138}
-  m_Mesh: {fileID: 4300000, guid: 234a14baf542ff545a405398adc03fac, type: 2}
---- !u!23 &7964197503852252771
+  m_GameObject: {fileID: 3660637473363255521}
+  m_Mesh: {fileID: -1092727211679597944, guid: 8402eb54ab9c3924e9c4cb5dfd085dd3, type: 2}
+--- !u!23 &3036271775899246253
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7136777383842156138}
+  m_GameObject: {fileID: 3660637473363255521}
   m_Enabled: 1
-  m_CastShadows: 0
+  m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -112,7 +127,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d3a51c0ec20089e44ba75ca1ab07f0d4, type: 2}
+  - {fileID: 2100000, guid: 58b0a4fb427ad7b4d9a84ea9787076e6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -136,3 +151,35 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &8644042881575244855
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6131303047207908452}
+  m_Layer: 0
+  m_Name: Mesh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6131303047207908452
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8644042881575244855}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8693139124924926813}
+  m_Father: {fileID: 7690901619094832617}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

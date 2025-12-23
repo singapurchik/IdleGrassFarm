@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 27b5679b36053ff498262bf0ba3f4774
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 195349
+  packageName: Terrain To Mesh
+  packageVersion: 2025.9
+  assetPath: Assets/Amazing Assets/Terrain To Mesh/Editor/ReadMe/ReadMeEditor.cs
+  uploadId: 834126

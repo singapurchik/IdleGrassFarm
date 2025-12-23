@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1124891890944905343, guid: 0c4bc81b271a8944abf92f4fe87c9c2c, type: 3}
+      propertyPath: m_text
+      value: + Cart
+      objectReference: {fileID: 0}
     - target: {fileID: 4504457050457289803, guid: 0c4bc81b271a8944abf92f4fe87c9c2c, type: 3}
       propertyPath: m_LocalScale.x
       value: 3
@@ -62,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7619454802916462224, guid: 0c4bc81b271a8944abf92f4fe87c9c2c, type: 3}
       propertyPath: m_Name
-      value: Cart Deposit Zone Variant
+      value: Cart Deposit Zone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
