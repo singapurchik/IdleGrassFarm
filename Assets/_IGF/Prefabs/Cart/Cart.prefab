@@ -912,6 +912,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2629073158976640329}
+  - component: {fileID: 1419989055987573240}
   - component: {fileID: 7469589461312668462}
   m_Layer: 0
   m_Name: Cart
@@ -938,6 +939,18 @@ Transform:
   - {fileID: 3785886113908436381}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1419989055987573240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4341841642837545280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57cab914d5824664b98be01a6664e89f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IGF.Cart
 --- !u!114 &7469589461312668462
 MonoBehaviour:
   m_ObjectHideFlags: 0

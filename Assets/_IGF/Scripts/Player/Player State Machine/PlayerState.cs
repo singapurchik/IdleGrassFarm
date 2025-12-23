@@ -1,5 +1,4 @@
 using IGF.Players.Animations;
-using IGF.Players.AnimRig;
 using UnityEngine;
 using Zenject;
 
@@ -17,7 +16,6 @@ namespace IGF.Players.States
 		[Inject (Id = CharacterTransformType.Root)] protected Transform Transform;
 		[Inject (Id = CharacterTransformType.Body)] protected Transform Body;
 		[Inject] protected IPlayerDamageablesFinderResult DamageablesFinderResult;
-		[Inject] protected PlayerAnimationRigging AnimationRigging;
 		[Inject] protected IPlayerStateMachineInfo StateMachine;
 		[Inject] protected PlayerAnimEventsReceiver AnimEvents;
 		[Inject] protected PlayerVisualEffects VisualEffects;

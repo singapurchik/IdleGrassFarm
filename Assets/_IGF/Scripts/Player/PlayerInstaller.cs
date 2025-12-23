@@ -1,8 +1,5 @@
-using UnityEngine.Animations.Rigging;
 using System.Collections.Generic;
 using IGF.Players.Animations;
-using IGF.Players.AnimRig;
-using IGF.Players.States;
 using UnityEngine;
 using VInspector;
 using Zenject;
@@ -14,26 +11,21 @@ namespace IGF.Players
 		[SerializeField] private PlayerDamageablesFinder _damageablesFinder;
 		[SerializeField] private PlayerAnimEventsReceiver _animEventsReceiver;
 		[SerializeField] private CharacterController _characterController;
-		[SerializeField] private PlayerAnimationRigging _animationRigging;
 		[SerializeField] private PlayerVisualEffects _visualEffects;
 		[SerializeField] private Animator _animatorController;
 		[SerializeField] private PlayerAnimator _animator;
-		[SerializeField] private RigBuilder _rigBuilder;
 		[SerializeField] private PlayerRotator _rotator;
 		[SerializeField] private PlayerMover _mover;
 		[SerializeField] private Transform _body;
 		
 		public override void InstallBindings()
 		{
-			Container.BindInstance(_rigBuilder).WhenInjectedIntoInstance(_animationRigging);
-
 			Container.Bind<IPlayerDamageablesFinderResult>().FromInstance(_damageablesFinder).AsSingle();
 
 			Container.BindInstance(transform).WithId(CharacterTransformType.Root).AsCached();
 			Container.BindInstance(_body).WithId(CharacterTransformType.Body).AsCached();
 			Container.BindInstance(_characterController).AsSingle();
 			Container.BindInstance(_animEventsReceiver).AsSingle();
-			Container.BindInstance(_animationRigging).AsSingle();
 			Container.BindInstance(_visualEffects).AsSingle();
 			Container.BindInstance(_animator).AsSingle();
 			Container.BindInstance(_rotator).AsSingle();
@@ -64,12 +56,10 @@ namespace IGF.Players
 		{
 			_damageablesFinder = GetComponentInChildren<PlayerDamageablesFinder>(true);
 			_animEventsReceiver = GetComponentInChildren<PlayerAnimEventsReceiver>(true);
-			_animationRigging = GetComponentInChildren<PlayerAnimationRigging>(true);
 			_characterController = GetComponentInChildren<CharacterController>(true);
 			_visualEffects = GetComponentInChildren<PlayerVisualEffects>(true);
 			_animatorController = GetComponentInChildren<Animator>(true);
 			_animator = GetComponentInChildren<PlayerAnimator>(true);
-			_rigBuilder = GetComponentInChildren<RigBuilder>(true);
 			_rotator = GetComponentInChildren<PlayerRotator>(true);
 			_mover = GetComponentInChildren<PlayerMover>(true);
 		}

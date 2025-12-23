@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6735475354531535572
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4504457050457289803, guid: 0c4bc81b271a8944abf92f4fe87c9c2c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504457050457289803, guid: 0c4bc81b271a8944abf92f4fe87c9c2c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504457050457289803, guid: 0c4bc81b271a8944abf92f4fe87c9c2c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504457050457289803, guid: 0c4bc81b271a8944abf92f4fe87c9c2c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504457050457289803, guid: 0c4bc81b271a8944abf92f4fe87c9c2c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504457050457289803, guid: 0c4bc81b271a8944abf92f4fe87c9c2c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504457050457289803, guid: 0c4bc81b271a8944abf92f4fe87c9c2c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504457050457289803, guid: 0c4bc81b271a8944abf92f4fe87c9c2c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504457050457289803, guid: 0c4bc81b271a8944abf92f4fe87c9c2c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504457050457289803, guid: 0c4bc81b271a8944abf92f4fe87c9c2c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504457050457289803, guid: 0c4bc81b271a8944abf92f4fe87c9c2c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504457050457289803, guid: 0c4bc81b271a8944abf92f4fe87c9c2c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504457050457289803, guid: 0c4bc81b271a8944abf92f4fe87c9c2c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7619454802916462224, guid: 0c4bc81b271a8944abf92f4fe87c9c2c, type: 3}
+      propertyPath: m_Name
+      value: Attack Range Deposit Zone Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7619454802916462224, guid: 0c4bc81b271a8944abf92f4fe87c9c2c, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 3609691716355182463}
+  m_SourcePrefab: {fileID: 100100000, guid: 0c4bc81b271a8944abf92f4fe87c9c2c, type: 3}
+--- !u!114 &1185774501519302919 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5552235230620171219, guid: 0c4bc81b271a8944abf92f4fe87c9c2c, type: 3}
+  m_PrefabInstance: {fileID: 6735475354531535572}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aad7764b302f4c428575b9e5d1ea7962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IGF.Wallet.CurrencyView
+--- !u!114 &1809368019151017852 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4928377831227051432, guid: 0c4bc81b271a8944abf92f4fe87c9c2c, type: 3}
+  m_PrefabInstance: {fileID: 6735475354531535572}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aad7764b302f4c428575b9e5d1ea7962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IGF.Wallet.CurrencyView
+--- !u!1 &3802316680382305348 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7619454802916462224, guid: 0c4bc81b271a8944abf92f4fe87c9c2c, type: 3}
+  m_PrefabInstance: {fileID: 6735475354531535572}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3609691716355182463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3802316680382305348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 919aa539b41e478db6c1a4bf70434b53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IGF.Upgrades.AttackRangeDepositZone
+  _progressSpeed: 0.5
+  _firstCurrency: 1
+  _secondCurrency: 0
+  _firstBaseCost: 2
+  _secondBaseCost: 2
+  _costMultiplier: 2
+  _depositUnitsPerSecond: 2
+  _depositChunk: 1
+  _view:
+    _yellowView: {fileID: 1809368019151017852}
+    _greenView: {fileID: 1185774501519302919}
